@@ -60,7 +60,6 @@ if ($stm = $connect->prepare('SELECT * FROM posts')) {
                         <td>
                             <a href="postsedit.php?id=<?php echo $record['ID']?>">Edytuj</a> |
                             <a href="posts.php?delete=<?php echo $record['ID']?>">Usuń</a>
-                            healofdias
                         </td>
                     </tr>
                 <?php } ?>
