@@ -14,7 +14,7 @@ if (isset($_GET['delete'])) {
         $stm->execute();
         //? usuwanie uzytkownika o id $_GET['delete']
 
-        set_message('Post o id ' . $_GET['delete'] .' został usunięty');
+        set_message('Post o id ' . $_GET['delete'] .' został usunięty', "success");
         header('Location:posts.php');
 
         $stm->close();

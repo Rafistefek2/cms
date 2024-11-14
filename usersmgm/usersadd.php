@@ -14,7 +14,7 @@ if (isset($_POST['username'])) {
         $stm->execute();
         //? dodawanie użytkownika o podanych zmiennych
 
-        set_message('Nowy użytkownik ' . $_POST ['username'] .' został dodany');
+        set_message('Nowy użytkownik ' . $_POST ['username'] .' został dodany', "success");
         header('Location:../users.php');
 
         $stm->close();

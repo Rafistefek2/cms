@@ -26,7 +26,7 @@ if (isset($_POST['title'])) {
                 echo'password update statement problem nie można przygotować';
             }
         }
-        set_message('Zmiany dala użytkownika o id ' . $_GET['id'] .' zostały wprowadzone');
+        set_message('Zmiany dala użytkownika o id ' . $_GET['id'] .' zostały wprowadzone', "success");
         header('Location:../posts.php');
         die();
     }

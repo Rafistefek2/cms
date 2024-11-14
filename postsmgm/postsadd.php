@@ -13,7 +13,7 @@ if (isset($_POST['title'])) {
         $stm->execute();
         //? dodawanie posta o podanych zmiennych
 
-        set_message('Nowy post "' . $_POST['title'] .'" został dodany');
+        set_message('Nowy post "' . $_POST['title'] .'" został dodany', "success");
         header('Location:../posts.php');
 
         $stm->close();

@@ -26,7 +26,7 @@ if (isset($_POST['email'])) {
         if ($user) {
 
             if ($user['active'] == 0) {
-                set_message("User account is inactive.");
+                set_message("User account is inactive.", "warning");
                 header("Location:/cms/");
                 die();
             }
@@ -37,7 +37,7 @@ if (isset($_POST['email'])) {
                 $_SESSION['username'] = $user['username'];
 
                 //? informacja o zalogowaniu
-                set_message('Zalogowano jako ' . $_SESSION['username']);
+                set_message('Zalogowano jako ' . $_SESSION['username'], "success");
 
                 header('Location:dashboard.php');
                 die();
