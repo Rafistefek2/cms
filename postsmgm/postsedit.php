@@ -1,16 +1,16 @@
 <?php 
 
-include('importy/bazadanych.php');
-include('importy/funkcje.php');
-include('importy/config.php');
+include('../importy/bazadanych.php');
+include('../importy/funkcje.php');
+include('../importy/config.php');
 Zaloguj_sie_zeby_odwiedzic();   //? strona dostępna tylko po zalogowaniu
 
-include('importy/header.php');
+include('../importy/header.php');
 
-if (isset($_POST['username'])) {
-    //? aktualizowanie danych użytkownika
-    if ($stm = $connect->prepare('UPDATE users SET username = ?, email = ?, active = ? WHERE id = ?')) {
-        $stm->bind_param('sssi', $_POST['username'], $_POST['email'], $_POST['active'], $_GET['id']);
+if (isset($_POST['title'])) {
+    //? aktualizowanie danych posta
+    if ($stm = $connect->prepare('UPDATE posts SET title = ?, content = ?, date = ? WHERE id = ?')) {
+        $stm->bind_param('sssi', $_POST['title'], $_POST['content'], $_POST['date'], $_GET['id']);
         $stm->execute();
 
         $stm->close();
@@ -26,8 +26,8 @@ if (isset($_POST['username'])) {
                 echo'password update statement problem nie można przygotować';
             }
         }
-        set_message('Zmiany dala użytkownika o id' . $_GET['id'] .' zostały wprowadzone');
-        header('Location:users.php');
+        set_message('Zmiany dala użytkownika o id ' . $_GET['id'] .' zostały wprowadzone');
+        header('Location:../posts.php');
         die();
     }
     else {
@@ -88,5 +88,5 @@ if (isset($_GET['id'])) {
     die();
 }
 
-include("importy/footer.php");
+include("../importy/footer.php");
 ?>

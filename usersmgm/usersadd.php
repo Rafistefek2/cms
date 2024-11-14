@@ -1,11 +1,11 @@
 <?php 
 
-include('importy/bazadanych.php');
-include('importy/funkcje.php');
-include('importy/config.php');
+include('../importy/bazadanych.php');
+include('../importy/funkcje.php');
+include('../importy/config.php');
 Zaloguj_sie_zeby_odwiedzic();   //? strona dostępna tylko po zalogowaniu
 
-include('importy/header.php');
+include('../importy/header.php');
 
 if (isset($_POST['username'])) {
     if ($stm = $connect->prepare('INSERT INTO users(username,email,password,active) VALUES (?, ?, ?, ?)')) {
@@ -15,7 +15,7 @@ if (isset($_POST['username'])) {
         //? dodawanie użytkownika o podanych zmiennych
 
         set_message('Nowy użytkownik ' . $_POST ['username'] .' został dodany');
-        header('Location:users.php');
+        header('Location:../users.php');
 
         $stm->close();
         die();
@@ -69,5 +69,5 @@ if (isset($_POST['username'])) {
 <?php        
 
 
-include("importy/footer.php");
+include("../importy/footer.php");
 ?>

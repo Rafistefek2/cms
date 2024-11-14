@@ -1,11 +1,11 @@
 <?php 
 
-include('importy/bazadanych.php');
-include('importy/funkcje.php');
-include('importy/config.php');
+include('../importy/bazadanych.php');
+include('../importy/funkcje.php');
+include('../importy/config.php');
 Zaloguj_sie_zeby_odwiedzic();   //? strona dostępna tylko po zalogowaniu
 
-include('importy/header.php');
+include('../importy/header.php');
 
 if (isset($_POST['username'])) {
     //? aktualizowanie danych użytkownika
@@ -26,8 +26,8 @@ if (isset($_POST['username'])) {
                 echo'password update statement problem nie można przygotować';
             }
         }
-        set_message('Zmiany dala użytkownika o id' . $_GET['id'] .' zostały wprowadzone');
-        header('Location:users.php');
+        set_message('Zmiany dala użytkownika o id ' . $_GET['id'] .' zostały wprowadzone');
+        header('Location:../users.php');
         die();
     }
     else {
@@ -97,5 +97,5 @@ if (isset($_GET['id'])) {
     die();
 }
 
-include("importy/footer.php");
+include("../importy/footer.php");
 ?>

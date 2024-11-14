@@ -1,11 +1,11 @@
 <?php 
 
-include('importy/bazadanych.php');
-include('importy/funkcje.php');
-include('importy/config.php');
+include('../importy/bazadanych.php');
+include('../importy/funkcje.php');
+include('../importy/config.php');
 Zaloguj_sie_zeby_odwiedzic();   //? strona dostępna tylko po zalogowaniu
 
-include('importy/header.php');
+include('../importy/header.php');
 
 if (isset($_POST['title'])) {
     if ($stm = $connect->prepare('INSERT INTO posts(title,content,autor,date) VALUES (?, ?, ?, ?)')) {
@@ -14,7 +14,7 @@ if (isset($_POST['title'])) {
         //? dodawanie posta o podanych zmiennych
 
         set_message('Nowy post "' . $_POST['title'] .'" został dodany');
-        header('Location:users.php');
+        header('Location:../posts.php');
 
         $stm->close();
         die();
@@ -61,5 +61,5 @@ if (isset($_POST['title'])) {
 <?php        
 
 
-include("importy/footer.php");
+include("../importy/footer.php");
 ?>

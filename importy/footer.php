@@ -1,7 +1,7 @@
 
 <div id="toast"></div>
 
-<script defer src="js/mdb.umd.min.js"></script>
+<script defer src="/cms/js/mdb.umd.min.js"></script>
 <script>
     function dawajTosta(message, position, type) {
         const toast = document.getElementById("toast");

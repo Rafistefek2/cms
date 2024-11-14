@@ -58,13 +58,13 @@ if ($stm = $connect->prepare('SELECT * FROM posts')) {
                         <td><?php echo $record['autor']?></td>
                         <td><?php echo $record['content']?></td>
                         <td>
-                            <a href="postsedit.php?id=<?php echo $record['ID']?>">Edytuj</a> |
-                            <a href="posts.php?delete=<?php echo $record['ID']?>">Usuń</a>
+                            <a href="/cms/postsmgm/postsedit.php?id=<?php echo $record['ID']?>">Edytuj</a> |
+                            <a href="/cms/posts.php?delete=<?php echo $record['ID']?>">Usuń</a>
                         </td>
                     </tr>
                 <?php } ?>
             </table>
-            <a href="usersadd.php">Dodaj nowego posta</a>
+            <a href="postsmgm/postsadd.php">Dodaj nowego posta</a>
         </div>
     </div>
 </div>

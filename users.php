@@ -58,13 +58,13 @@ if ($stm = $connect->prepare('SELECT * FROM users')) {
                         <td><?php echo $record['email']?></td>
                         <td><?php echo $record['active']?></td>
                         <td>
-                            <a href="usersedit.php?id=<?php echo $record['ID']?>">Edytuj</a> |
-                            <a href="users.php?delete=<?php echo $record['ID']?>">Usuń</a>
+                            <a href="/cms/usersmgm/usersedit.php?id=<?php echo $record['ID']?>">Edytuj</a> |
+                            <a href="/cms/users.php?delete=<?php echo $record['ID']?>">Usuń</a>
                         </td>
                     </tr>
                 <?php } ?>
             </table>
-            <a href="usersadd.php">Dodaj nowego użytkownika</a>
+            <a href="usersmgm/usersadd.php">Dodaj nowego użytkownika</a>
         </div>
     </div>
 </div>

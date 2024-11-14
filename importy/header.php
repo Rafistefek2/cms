@@ -15,8 +15,8 @@
         href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
     />
     <!-- MDB -->
-    <link rel="stylesheet" href="css/mdb.min.css" />
-    <link rel="stylesheet" href="css/tosty.css" />
+    <link rel="stylesheet" href="/cms/css/mdb.min.css" />
+    <link rel="stylesheet" href="/cms/css/tosty.css" />
 </head>
 <body>
 
@@ -40,10 +40,10 @@
                     <a class="nav-link active" aria-current="page" href="/cms/">Log in</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="dashboard.php">Dashboard</a>
+                    <a class="nav-link" href="/cms/dashboard.php">Dashboard</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="logout.php">Logout</a>
+                    <a class="nav-link" href="/cms/logout.php">Logout</a>
                 </li>
             </ul>
         </div>
