@@ -13,7 +13,7 @@ if (isset($_SESSION['id'])) {
 
 //? działanie login form 
 if (isset($_POST['email'])) {
-    if ($stm = $connect->prepare('SELECT * FROM users WHERE email = ? AND password = ? AND active = 1')) {
+    if ($stm = $connect->prepare('SELECT * FROM users WHERE email = ? AND password = ?')) {
         $hashed = SHA1($_POST['password']);
         $stm->bind_param('ss', $_POST['email'], $hashed);
         $stm->execute();
@@ -24,16 +24,24 @@ if (isset($_POST['email'])) {
         $user = $result->fetch_assoc();
         
         if ($user) {
-            //? przechowywanie informacji o uzytkowniku w sesji
-            $_SESSION['email'] = $user['email'];
-            $_SESSION['id'] = $user['ID'];
-            $_SESSION['username'] = $user['username'];
 
-            //? informacja o zalogowaniu
-            set_message('Zalogowano jako ' . $_SESSION['username']);
+            if ($user['active'] == 0) {
+                set_message("User account is inactive.");
+                header("Location:/cms/");
+                die();
+            }
+            else {
+                //? przechowywanie informacji o uzytkowniku w sesji
+                $_SESSION['email'] = $user['email'];
+                $_SESSION['id'] = $user['ID'];
+                $_SESSION['username'] = $user['username'];
 
-            header('Location:dashboard.php');
-            die();
+                //? informacja o zalogowaniu
+                set_message('Zalogowano jako ' . $_SESSION['username']);
+
+                header('Location:dashboard.php');
+                die();
+            }
         }
         $stm->close();
     }
