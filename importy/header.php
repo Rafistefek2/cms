@@ -14,38 +14,39 @@
         rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
     />
-    <!-- MDB -->
-    <link rel="stylesheet" href="/cms/css/mdb.min.css" />
-    <link rel="stylesheet" href="/cms/css/tosty.css" />
+    <!-- Styleeee -->
+    <link rel="stylesheet" href="/cms/css/general.css" />       <!-- ogólne elementy strony -->
+    <link rel="stylesheet" href="/cms/css/menu.css" />      <!-- style do górnej części strony -->
+    <link rel="stylesheet" href="/cms/css/tosty.css"/>      <!-- style do tosta -->
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">CMS</a>
-        <button
-            data-mdb-collapse-init
-            class="navbar-toggler"
-            type="button"
-            data-mdb-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-        >
-        <i class="fas fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/cms/">Log in</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/cms/dashboard.php">Dashboard</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/cms/logout.php">Logout</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+<header>
+    <nav>
+        <a href="#" class="pagelogo">CMS</a>
+        <button id="menu-button" aria-expanded="false">☰ Menu</button>
+        <ul id="menu">
+            <?php 
+                if(!isset($_SESSION["username"])){
+                    ?>
+                        <li>
+                            <a href="/cms/">Log in</a>
+                    </li>
+            <?php
+                }
+            ?>
+            <li>
+                <a href="/cms/dashboard.php">Dashboard</a>
+            </li>
+            <?php 
+                if(isset($_SESSION["username"])){
+                    ?>
+                        <li>
+                            <a href="/cms/logout.php">Logout</a>
+                    </li>
+            <?php
+                }
+            ?>
+        </ul>
+        </nav>
+</header>
