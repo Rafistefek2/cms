@@ -8,6 +8,13 @@ function Zaloguj_sie_zeby_odwiedzic() {
         die();
     }     
 }
+function chroniona_adminem() {
+    if (isset($_SESSION['is_admin']) && $_SESSION['is_admin'] != 1) {
+        set_message('Dostęp do tej strony ma tylko administrator', "warning");
+        header('Location:/cms/');
+        die();
+    }     
+}
 
 
 function set_message($message, $messtype){

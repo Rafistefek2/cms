@@ -23,22 +23,24 @@
 
 <header>
     <nav>
-        <a href="#" class="pagelogo">CMS</a>
+        <a href="/cms/" class="pagelogo">CMS</a>
         <button id="menu-button" aria-expanded="false">☰ Menu</button>
         <ul id="menu">
             <?php 
                 if(!isset($_SESSION["username"])){
                     ?>
                         <li>
-                            <a href="/cms/">Log in</a>
+                            <a href="/cms/login.php">Log in</a>
                     </li>
             <?php
                 }
+                if(isset($_SESSION["is_admin"]) && $_SESSION["is_admin"] == 1){
             ?>
-            <li>
-                <a href="/cms/dashboard.php">Dashboard</a>
-            </li>
-            <?php 
+                <li>
+                    <a href="/cms/dashboard.php">Dashboard</a>
+                </li>
+            <?php
+                }
                 if(isset($_SESSION["username"])){
                     ?>
                         <li>

@@ -1,7 +1,3 @@
 -   wlasne style robic trzeba!
 
--   uprawnienia
-    is_admin w bazie danych
-    sprawdzanie czy uzytkownik mau prawnienia do dashboarda
-
-
+-   rejestracja nowych uzytkownikow!

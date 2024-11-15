@@ -4,6 +4,7 @@ include('importy/bazadanych.php');
 include('importy/funkcje.php');
 include('importy/config.php');
 Zaloguj_sie_zeby_odwiedzic();   //? strona dostępna tylko po zalogowaniu
+chroniona_adminem();
 
 include('importy/header.php');
 
@@ -11,10 +12,10 @@ include('importy/header.php');
 //var_dump($_SESSION)
 ?>
 
-<div class="container mt-5">
+<div class="container width-5">
     <div class="row justify-content-center">
-        <div class="col-md-10">
-            <h1 class="display-1">Dashboard</h1>
+        <div class="md-10">
+            <h1 class="page-title">Dashboard</h1>
             <a href="users.php">Zarządzanie użytkownikami</a> |
             <a href="posts.php">Zarządzanie postami</a>
         </div>
