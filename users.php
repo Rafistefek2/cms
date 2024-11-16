@@ -27,7 +27,7 @@ if (isset($_GET['delete'])) {
 }
 
 
-if ($stm = $connect->prepare('SELECT * FROM users WHERE is_admin != 1')) {
+if ($stm = $connect->prepare('SELECT * FROM users WHERE ID != 1')) {
     $stm->execute();
 
     //? bezpiecznie przesyłanie zmiennych do przygotowania statement

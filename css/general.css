@@ -131,6 +131,9 @@ th{
 td{
     padding: 0.5em 0.5em 0.5em;
 }
+.table-striped tr{
+    transition: all .5s;
+}
 .table-striped tr:nth-child(odd){
     background-color: #19dbd9;
 }
@@ -139,6 +142,7 @@ td{
 }
 .table-hover tr:not(:first-child):hover{
     background-color: #c1db66;
+    scale: 1.025;
 }
 .td-bool{
     text-align: right;
@@ -158,7 +162,7 @@ td{
     border-radius: 4px;
     border: 1px solid #000;
     background-color: #AD61DC;
-    transition: .5s;
+    transition: all .5s;
     margin: 0.3em;
 }
 .btn-add a{
@@ -169,4 +173,5 @@ td{
     box-shadow: 0px 1px 24px 5px rgba(163,156,156,0.89);
     -webkit-box-shadow: 0px 1px 24px 5px rgba(163,156,156,0.89);
     -moz-box-shadow: 0px 1px 24px 5px rgba(163,156,156,0.89);
+    scale: 1.05;
 }
