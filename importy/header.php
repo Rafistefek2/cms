@@ -28,10 +28,10 @@
         <ul id="menu">
             <?php 
                 if(!isset($_SESSION["username"])){
-                    ?>
-                        <li>
-                            <a href="/cms/login.php">Log in</a>
-                    </li>
+            ?>
+                <li>
+                    <a href="/cms/login.php">Log in</a>
+                </li>
             <?php
                 }
                 if(isset($_SESSION["is_admin"]) && $_SESSION["is_admin"] == 1){
@@ -42,10 +42,10 @@
             <?php
                 }
                 if(isset($_SESSION["username"])){
-                    ?>
-                        <li>
-                            <a href="/cms/logout.php">Logout</a>
-                    </li>
+            ?>
+                <li>
+                    <a href="/cms/logout.php">Logout</a>
+                </li>
             <?php
                 }
             ?>
