@@ -51,26 +51,26 @@ if (isset($_GET['id'])) {
             <h1 class="display-1">Edytuj posta</h1>
             <form method="post">
                 <!-- title input -->
-                <div data-mdb-input-init class="form-outline mb-4">
+                <div placeholder="" class="form-outline mb-4">
                     <input type="text" id="title" class="form-control" name="title" value="<?php echo $post['title']?>"/>
                     <label class="form-label" for="email">Tytuł</label>
                 </div>
 
                 <!-- content input -->
-                <div data-mdb-input-init class="form-outline mb-4">
+                <div placeholder="" class="form-outline mb-4">
                     <input type="" id="content" class="form-control" name="content" value="<?php echo $post['content']?>"/>
                     <label class="form-label" for="content">Content</label>
                 </div>
 
                 
                 <!-- date select -->
-                <div data-mdb-input-init class="form-outline mb-4">
+                <div placeholder="" class="form-outline mb-4">
                     <input type="date" id="date" class="form-control" name="date" value="<?php echo $post['date']?>">
                     <label class="form-label" for="date">Data</label>
                 </div>
 
                 <!-- Submit button -->
-                <button data-mdb-ripple-init type="submit" class="btn btn-primary btn-block">Edit post</button>
+                <button type="submit" class="btn-accept">Edit post</button>
             </form>
         </div>
     </div>

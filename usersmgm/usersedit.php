@@ -52,25 +52,25 @@ if (isset($_GET['id'])) {
             <h1 class="display-1">Edytuj użytkownika</h1>
             <form method="post">
                 <!-- Username input -->
-                <div data-mdb-input-init class="form-outline mb-4">
-                    <input type="text" id="username" class="form-control active" name="username" value="<?php echo $user['username']?>"/>
+                <div class="form-outline mb-4">
+                    <input placeholder="" type="text" id="username" class="form-control active" name="username" value="<?php echo $user['username']?>"/>
                     <label class="form-label" for="email">Username</label>
                 </div>
                 <!-- Email input -->
-                <div data-mdb-input-init class="form-outline mb-4">
-                    <input type="email" id="email" class="form-control active" name="email" value="<?php echo $user['email']?>"/>
+                <div class="form-outline mb-4">
+                    <input placeholder="" type="email" id="email" class="form-control active" name="email" value="<?php echo $user['email']?>"/>
                     <label class="form-label" for="email">Email address</label>
                 </div>
 
                 <!-- Password input -->
-                <div data-mdb-input-init class="form-outline mb-4">
-                    <input type="password" id="password" class="form-control" name="password" />
+                <div class="form-outline mb-4">
+                    <input placeholder="" type="password" id="password" class="form-control" name="password" />
                     <label class="form-label" for="password">Password</label>
                 </div>
 
                 
                 <!-- Active select -->
-                <div data-mdb-input-init class="form-outline mb-4">
+                <div class="form-outline mb-4">
                     <select name="active" id="active" class="form-select">
                         <!-- skrócony if, wyswietlanie ktore pole jest zaznaczone    -->
                         <option <?php echo ($user['active']) ? 'selected' : ''; ?> value="1">Active</option>
@@ -79,7 +79,7 @@ if (isset($_GET['id'])) {
                 </div>
 
                 <!-- Submit button -->
-                <button data-mdb-ripple-init type="submit" class="btn btn-primary btn-block">Update user</button>
+                <button type="submit" class="btn-accept">Aktualizuj</button>
             </form>
         </div>
     </div>

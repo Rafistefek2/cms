@@ -24,10 +24,9 @@ if (isset($_POST['email'])) {
         $user = $result->fetch_assoc();
         
         if ($user) {
-
             if ($user['active'] == 0) {
-                set_message("User account is inactive.", "warning");
-                header("Location:/cms/");
+                set_message("To konto jest nieaktywne.", "warning");
+                header("Location:/cms/login.php");
                 die();
             }
             else {
@@ -49,6 +48,9 @@ if (isset($_POST['email'])) {
                     die();
                 }
             }
+        }
+        else {
+            set_message('Nie ma takiego użytkownika.', 'warning');
         }
         $stm->close();
     }

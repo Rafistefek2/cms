@@ -7,7 +7,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #B3F3F2;
+    background-color: rgb(209, 227, 235);
 }
 .container{
     margin: auto;
@@ -17,6 +17,8 @@ body {
 }
 .row{
     display: flex;
+    padding-left: 1em;
+    padding-right: 1em;
 }
 .justify-content-center{
     justify-content: center;
@@ -26,7 +28,9 @@ body {
 }
 .md-10{
     padding: 2em 0em 2em;
-    border: 1px solid black;
+}
+.md-4{
+    padding: 1em 0em 1em;
 }
 /*
     ? formularze
@@ -49,6 +53,20 @@ body {
 }
 
 .form-control:focus {
+    border: 2px solid #007BFF;
+}
+.form-select {
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    transition: border 0.5s;
+    box-sizing: border-box;
+}
+
+.form-select:focus {
     border: 2px solid #007BFF;
 }
 
@@ -92,8 +110,63 @@ body {
     -moz-box-shadow: 0px 1px 24px 5px rgba(163,156,156,0.89);
 }
 /*
-    ? formularze
+    ? -----formularze
 */
 .page-title{
     font-size: 70px;
+}
+.inactive{
+    color: red;
+}
+/*
+    ? style tabelki
+*/
+.table{
+    width: 100%;
+    border-collapse: collapse;
+}
+th{
+    padding: 1em 1em 1em;
+}
+td{
+    padding: 0.5em 0.5em 0.5em;
+}
+.table-striped tr:nth-child(odd){
+    background-color: #19dbd9;
+}
+.table-striped tr:nth-child(even){
+    background-color: #b3f3f2;
+}
+.table-hover tr:not(:first-child):hover{
+    background-color: #c1db66;
+}
+.td-bool{
+    text-align: right;
+    padding-right: 0.5em;
+}
+.text-center{
+    padding: 0 1em 0;
+}
+/*
+    ? ------------style tabelki
+*/
+.btn-add{
+    min-width: 50%;
+    height: 2em;
+    color: white;
+    font-size: 18px;
+    border-radius: 4px;
+    border: 1px solid #000;
+    background-color: #AD61DC;
+    transition: .5s;
+    margin: 0.3em;
+}
+.btn-add a{
+    color: white;
+    text-decoration: none;
+}
+.btn-add:hover{
+    box-shadow: 0px 1px 24px 5px rgba(163,156,156,0.89);
+    -webkit-box-shadow: 0px 1px 24px 5px rgba(163,156,156,0.89);
+    -moz-box-shadow: 0px 1px 24px 5px rgba(163,156,156,0.89);
 }

@@ -33,26 +33,26 @@ if (isset($_POST['title'])) {
             <h1 class="display-1">Dodaj post</h1>
             <form method="post">
                 <!-- title input -->
-                <div data-mdb-input-init class="form-outline mb-4">
-                    <input type="text" id="title" class="form-control" name="title"/>
+                <div class="form-outline mb-4">
+                    <input placeholder="" required type="text" id="title" class="form-control" name="title"/>
                     <label class="form-label" for="email">Tytuł</label>
                 </div>
 
                 <!-- content input -->
-                <div data-mdb-input-init class="form-outline mb-4">
-                    <input type="" id="content" class="form-control" name="content"/>
+                <div class="form-outline mb-4">
+                    <input placeholder="" required type="" id="content" class="form-control" name="content"/>
                     <label class="form-label" for="content">Content</label>
                 </div>
 
                 
                 <!-- date select -->
-                <div data-mdb-input-init class="form-outline mb-4">
-                    <input type="date" id="date" class="form-control" name="date">
+                <div class="form-outline mb-4">
+                    <input placeholder="" required type="date" id="date" class="form-control" name="date">
                     <label class="form-label" for="date">Data</label>
                 </div>
 
                 <!-- Submit button -->
-                <button data-mdb-ripple-init type="submit" class="btn btn-primary btn-block">Add post</button>
+                <button type="submit" class="btn-accept">Dodaj post</button>
             </form>
         </div>
     </div>

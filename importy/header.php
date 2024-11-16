@@ -24,7 +24,7 @@
 <header>
     <nav>
         <a href="/cms/" class="pagelogo">CMS</a>
-        <button id="menu-button" aria-expanded="false">☰ Menu</button>
+        <button id="menu-button" aria-expanded="false"><i class="fas fa-bars"></i></button>
         <ul id="menu">
             <?php 
                 if(!isset($_SESSION["username"])){

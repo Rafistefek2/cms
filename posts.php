@@ -39,10 +39,13 @@ if ($stm = $connect->prepare('SELECT * FROM posts')) {
 //var_dump($_SESSION)
 ?>
 
-<div class="container mt-5">
+<div class="container width-5">
     <div class="row justify-content-center">
-        <div class="col-md-6">
-            <h1 class="display-1">Posty</h1>
+        <div class="md-10">
+            <h1 class="page-title">Posty</h1>
+            <button class="btn-add">
+                <a href="postsmgm/postsadd.php">Dodaj nowego posta</a>
+            </button>
             <table class="table table-striped table-hover">
                 <tr>
                     <th>Id</th>
@@ -64,7 +67,6 @@ if ($stm = $connect->prepare('SELECT * FROM posts')) {
                     </tr>
                 <?php } ?>
             </table>
-            <a href="postsmgm/postsadd.php">Dodaj nowego posta</a>
         </div>
     </div>
 </div>

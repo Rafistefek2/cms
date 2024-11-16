@@ -34,25 +34,25 @@ if (isset($_POST['username'])) {
             <h1 class="display-1">Dodaj użytkownika</h1>
             <form method="post">
                 <!-- Username input -->
-                <div data-mdb-input-init class="form-outline mb-4">
-                    <input type="text" id="username" class="form-control" name="username"/>
+                <div class="form-outline mb-4">
+                    <input placeholder="" required type="text" id="username" class="form-control" name="username"/>
                     <label class="form-label" for="email">Username</label>
                 </div>
                 <!-- Email input -->
-                <div data-mdb-input-init class="form-outline mb-4">
-                    <input type="email" id="email" class="form-control" name="email"/>
+                <div class="form-outline mb-4">
+                    <input placeholder="" required type="email" id="email" class="form-control" name="email"/>
                     <label class="form-label" for="email">Email address</label>
                 </div>
 
                 <!-- Password input -->
-                <div data-mdb-input-init class="form-outline mb-4">
-                    <input type="password" id="password" class="form-control" name="password"/>
+                <div class="form-outline mb-4">
+                    <input placeholder="" required type="password" id="password" class="form-control" name="password"/>
                     <label class="form-label" for="password">Password</label>
                 </div>
 
                 
                 <!-- Active select -->
-                <div data-mdb-input-init class="form-outline mb-4">
+                <div class="form-outline mb-4">
                     <select name="active" id="active" class="form-select">
                         <option value="1">Active</option>
                         <option value="0">Inctive</option>
@@ -60,7 +60,7 @@ if (isset($_POST['username'])) {
                 </div>
 
                 <!-- Submit button -->
-                <button data-mdb-ripple-init type="submit" class="btn btn-primary btn-block">Add user</button>
+                <button type="submit" class="btn-accept ">Dodaj użytkownika</button>
             </form>
         </div>
     </div>
