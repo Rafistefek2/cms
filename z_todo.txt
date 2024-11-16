@@ -20,3 +20,5 @@ pomysły na nazwy:
 
 
     
+-   zrobić tak żeby się wszystkie posty pokazywaly na stronie głównej 
+-   rejestracja nowych uzytkownikow!
