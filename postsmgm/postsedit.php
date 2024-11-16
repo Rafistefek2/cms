@@ -9,29 +9,19 @@ include('../importy/header.php');
 
 if (isset($_POST['title'])) {
     //? aktualizowanie danych posta
-    if ($stm = $connect->prepare('UPDATE posts SET title = ?, content = ?, date = ? WHERE id = ?')) {
-        $stm->bind_param('sssi', $_POST['title'], $_POST['content'], $_POST['date'], $_GET['id']);
+    if ($stm = $connect->prepare('UPDATE posts SET title = ?, content = ?,date = ?, private = ? WHERE id = ?')) {
+        $stm->bind_param('ssssi', $_POST['title'], $_POST['content'], $_POST['date'], $_POST['private'], $_GET['id']);
         $stm->execute();
 
         $stm->close();
         
-        //? jeśli zmienione hasło
-        if (isset($_POST['password'])) {
-            if ($stm = $connect->prepare('UPDATE users SET password = ? WHERE id = ?')) {
-                $hashed = SHA1($_POST['password']);
-                $stm->bind_param('si', $hashed, $_GET['id']);
-                $stm->execute();
-            }
-            else {
-                echo'password update statement problem nie można przygotować';
-            }
-        }
-        set_message('Zmiany dala użytkownika o id ' . $_GET['id'] .' zostały wprowadzone', "success");
+
+        set_message('Zmiany dala posta o id ' . $_GET['id'] .' zostały wprowadzone', "success");
         header('Location:../posts.php');
         die();
     }
     else {
-        echo'user update statement problem nie można przygotować';
+        echo'post update statement problem nie można przygotować';
     }
 }
 
@@ -42,6 +32,7 @@ if (isset($_GET['id'])) {
 
         $result = $stm->get_result();
         $post = $result->fetch_assoc();
+        var_dump($post);
         if ($post) {
 ?>
 
@@ -51,21 +42,30 @@ if (isset($_GET['id'])) {
             <h1 class="display-1">Edytuj posta</h1>
             <form method="post">
                 <!-- title input -->
-                <div placeholder="" class="form-outline mb-4">
-                    <input type="text" id="title" class="form-control" name="title" value="<?php echo $post['title']?>"/>
+                <div class="form-outline mb-4">
+                    <input placeholder="" required type="text" id="title" class="form-control" name="title" value="<?php echo $post['title']?>"/>
                     <label class="form-label" for="email">Tytuł</label>
                 </div>
 
                 <!-- content input -->
-                <div placeholder="" class="form-outline mb-4">
-                    <input type="" id="content" class="form-control" name="content" value="<?php echo $post['content']?>"/>
+                <div class="form-outline mb-4">
+                    <input placeholder="" required type="" id="content" class="form-control" name="content" value="<?php echo $post['content']?>"/>
                     <label class="form-label" for="content">Content</label>
+                </div>
+
+                <!-- private input -->
+                <div class="form-outline mb-4">
+                    <select name="private" id="private" class="form-select">
+                        <!-- skrócony if, wyswietlanie ktore pole jest zaznaczone    -->
+                        <option <?php echo ($post['private']) ? 'selected' : ''; ?> value="0">Publiczny</option>
+                        <option <?php echo ($post['private']) ? '' : 'selected'; ?> value="1">Prywatny</option>
+                    </select>
                 </div>
 
                 
                 <!-- date select -->
-                <div placeholder="" class="form-outline mb-4">
-                    <input type="date" id="date" class="form-control" name="date" value="<?php echo $post['date']?>">
+                <div class="form-outline mb-4">
+                    <input placeholder="" required type="date" id="date" class="form-control" name="date" value="<?php echo $post['date']?>">
                     <label class="form-label" for="date">Data</label>
                 </div>
 

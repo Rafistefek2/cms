@@ -8,8 +8,8 @@ Zaloguj_sie_zeby_odwiedzic();   //? strona dostępna tylko po zalogowaniu
 include('../importy/header.php');
 
 if (isset($_POST['title'])) {
-    if ($stm = $connect->prepare('INSERT INTO posts(title,content,autor,date) VALUES (?, ?, ?, ?)')) {
-        $stm->bind_param('ssss', $_POST['title'], $_POST['content'], $_SESSION['id'], $_POST['date']);
+    if ($stm = $connect->prepare('INSERT INTO posts(title,content,private,autor,date) VALUES (?, ?, ?, ?, ?)')) {
+        $stm->bind_param('sssss', $_POST['title'], $_POST['content'],$_POST['private'], $_SESSION['id'], $_POST['date']);
         $stm->execute();
         //? dodawanie posta o podanych zmiennych
 
@@ -44,8 +44,13 @@ if (isset($_POST['title'])) {
                     <label class="form-label" for="content">Content</label>
                 </div>
 
+                <!-- private input -->
+                <div class="form-outline mb-4">
+                    <input placeholder="" required type="text" id="private" class="form-control" name="private">
+                    <label class="form-label" for="private">Prywatność</label>
+                </div>
                 
-                <!-- date select -->
+                <!-- date input -->
                 <div class="form-outline mb-4">
                     <input placeholder="" required type="date" id="date" class="form-control" name="date">
                     <label class="form-label" for="date">Data</label>

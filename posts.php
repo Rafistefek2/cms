@@ -39,7 +39,7 @@ if ($stm = $connect->prepare('SELECT * FROM posts')) {
 //var_dump($_SESSION)
 ?>
 
-<div class="container width-5">
+<div class="container width-7">
     <div class="row justify-content-center">
         <div class="md-10">
             <h1 class="page-title">Posty</h1>
@@ -52,6 +52,7 @@ if ($stm = $connect->prepare('SELECT * FROM posts')) {
                     <th>Tytuł</th>
                     <th>Autor ID</th>   <!--TODO Zmienić na username autora (querry)-->
                     <th>Kontent</th>
+                    <th>Prywatność</th>
                     <th>Edytuj | Usuń</th>
                 </tr>
                 <?php while ($record = $result->fetch_assoc()) { ?>
@@ -60,6 +61,7 @@ if ($stm = $connect->prepare('SELECT * FROM posts')) {
                         <td><?php echo $record['title']?></td>
                         <td><?php echo $record['autor']?></td>
                         <td><?php echo $record['content']?></td>
+                        <td class="td-bool"><?php echo $record['private']?></td>
                         <td>
                             <a href="/cms/postsmgm/postsedit.php?id=<?php echo $record['ID']?>">Edytuj</a> |
                             <a href="/cms/posts.php?delete=<?php echo $record['ID']?>">Usuń</a>
