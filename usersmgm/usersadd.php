@@ -4,7 +4,7 @@ include('../importy/bazadanych.php');
 include('../importy/funkcje.php');
 include('../importy/config.php');
 Zaloguj_sie_zeby_odwiedzic();   //? strona dostępna tylko po zalogowaniu
-
+chroniona_adminem();
 include('../importy/header.php');
 
 if (isset($_POST['username'])) {

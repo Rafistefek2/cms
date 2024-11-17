@@ -4,7 +4,7 @@ include('../importy/bazadanych.php');
 include('../importy/funkcje.php');
 include('../importy/config.php');
 Zaloguj_sie_zeby_odwiedzic();   //? strona dostępna tylko po zalogowaniu
-
+chroniona_adminem();
 include('../importy/header.php');
 
 if (isset($_POST['title'])) {
@@ -44,10 +44,12 @@ if (isset($_POST['title'])) {
                     <label class="form-label" for="content">Content</label>
                 </div>
 
-                <!-- private input -->
+                <!-- private select -->
                 <div class="form-outline mb-4">
-                    <input placeholder="" required type="text" id="private" class="form-control" name="private">
-                    <label class="form-label" for="private">Prywatność</label>
+                    <select name="private" id="private" class="form-select">
+                        <option value="0">Publiczny</option>
+                        <option value="1">Prywatny</option>
+                    </select>
                 </div>
                 
                 <!-- date input -->

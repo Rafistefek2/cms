@@ -4,7 +4,7 @@ include('importy/bazadanych.php');
 include('importy/funkcje.php');
 include('importy/config.php');
 Zaloguj_sie_zeby_odwiedzic();   //? strona dostępna tylko po zalogowaniu
-
+chroniona_adminem();
 include('importy/header.php');
 
 if (isset($_GET['delete'])) {
@@ -39,7 +39,7 @@ if ($stm = $connect->prepare('SELECT * FROM users WHERE ID != 1')) {
 //var_dump($_SESSION)
 ?>
 
-<div class="container width-5">
+<div class="container width-7">
     <div class="row justify-content-center">
         <div class="md-10">
             <h1 class="page-title">Użytkownicy</h1>
@@ -53,7 +53,7 @@ if ($stm = $connect->prepare('SELECT * FROM users WHERE ID != 1')) {
                     <th>Email</th>
                     <th>Status</th>
                     <th>Administrator</th>
-                    <th class="text-center">Edytuj | Usuń</th>
+                    <th class="text-center"><span>Edytuj | Usuń</span></th>
                 </tr>
                 <?php while ($record = $result->fetch_assoc()) { ?>
                     <tr>

@@ -4,6 +4,7 @@ include('importy/bazadanych.php');
 include('importy/funkcje.php');
 include('importy/config.php');
 Zaloguj_sie_zeby_odwiedzic();   //? strona dostępna tylko po zalogowaniu
+chroniona_adminem();
 include('importy/header.php');
 
 
@@ -51,9 +52,9 @@ if ($stm = $connect->prepare('SELECT * FROM posts')) {
                     <th>Id</th>
                     <th>Tytuł</th>
                     <th>Autor ID</th>   <!--TODO Zmienić na username autora (querry)-->
-                    <th>Kontent</th>
+                    <th>Treść</th>
                     <th>Prywatność</th>
-                    <th>Edytuj | Usuń</th>
+                    <th class="text-center"><span>Edytuj | Usuń</span></th>
                 </tr>
                 <?php while ($record = $result->fetch_assoc()) { ?>
                     <tr>

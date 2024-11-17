@@ -4,7 +4,7 @@ include('../importy/bazadanych.php');
 include('../importy/funkcje.php');
 include('../importy/config.php');
 Zaloguj_sie_zeby_odwiedzic();   //? strona dostępna tylko po zalogowaniu
-
+chroniona_adminem();
 include('../importy/header.php');
 
 if (isset($_POST['title'])) {
@@ -32,7 +32,6 @@ if (isset($_GET['id'])) {
 
         $result = $stm->get_result();
         $post = $result->fetch_assoc();
-        var_dump($post);
         if ($post) {
 ?>
 
@@ -57,8 +56,8 @@ if (isset($_GET['id'])) {
                 <div class="form-outline mb-4">
                     <select name="private" id="private" class="form-select">
                         <!-- skrócony if, wyswietlanie ktore pole jest zaznaczone    -->
-                        <option <?php echo ($post['private']) ? 'selected' : ''; ?> value="0">Publiczny</option>
-                        <option <?php echo ($post['private']) ? '' : 'selected'; ?> value="1">Prywatny</option>
+                        <option <?php echo ($post['private']) ? '' : 'selected'; ?> value="0">Publiczny</option>
+                        <option <?php echo ($post['private']) ? 'selected' : ''; ?> value="1">Prywatny</option>
                     </select>
                 </div>
 

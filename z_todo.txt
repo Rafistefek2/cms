@@ -15,9 +15,5 @@ pomysły na nazwy:
 -   wlasne style robic trzeba!
 
 -   rejestracja nowych uzytkownikow!
-  
--   zrobić tak żeby się wszystkie posty pokazywaly na stronie głównej 
-
--   rejestracja nowych uzytkownikow!
 
 -   zrobic cos z dodawaniem postów/kontentu zmienic na text-area (pogadać z bargłem)
