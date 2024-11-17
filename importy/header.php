@@ -20,7 +20,15 @@
     <link rel="stylesheet" href="/cms/css/tosty.css"/>      <!-- style do tosta -->
 </head>
 <body>
-
+<?php
+    if ($stm = $connect->prepare('SELECT COUNT(ID) as liczbaUzytkownikow FROM users WHERE is_admin != 1;')) {
+        $stm->execute();
+    
+        $result = $stm->get_result();
+        // var_dump( $result->fetch_assoc() );
+        $usersnum = $result->fetch_assoc();
+    }
+?>
 <header>
     <nav>
         <a href="/cms/" class="pagelogo">CMS</a>
@@ -41,6 +49,13 @@
             ?>
                 <li>
                     <a href="/cms/dashboard.php">Dashboard</a>
+                </li>
+                <li class="li-info">
+                    <p><?php    //TODO tu zrobić tak zeby sie pojawialo ile jest uzytkownikow
+                        if ($usersnum) {
+                            echo 'Zarejestrowano użytkowników: ' . $usersnum['liczbaUzytkownikow'];
+                        }
+                    ?></p>
                 </li>
             <?php
                 }

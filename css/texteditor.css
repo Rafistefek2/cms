@@ -23,9 +23,11 @@
     background-color: lightgray;
 }
 #output{
-    height: 10em;
+    min-height: 15em;
     padding: 1rem;
     border: 1px solid black;
     border-radius: 5px;
     background-color: white;
+    overflow: auto;
+    resize: vertical;
 }
