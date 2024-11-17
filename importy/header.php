@@ -26,6 +26,9 @@
         <a href="/cms/" class="pagelogo">CMS</a>
         <button id="menu-button" aria-expanded="false"><i class="fas fa-bars"></i></button>
         <ul id="menu">
+                <li>
+                    <a href="/cms/texteditor.php">TextEditor</a>
+                </li>
             <?php 
                 if(!isset($_SESSION["username"])){
             ?>
