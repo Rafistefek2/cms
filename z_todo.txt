@@ -15,6 +15,7 @@ pomysły na nazwy:
 -   wlasne style robic trzeba!
 
 -   rejestracja nowych uzytkownikow!
+-   generator haseł w js 
 
 -   motywy do strony
 
