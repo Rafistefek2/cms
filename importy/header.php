@@ -50,13 +50,6 @@
                 <li>
                     <a href="/cms/dashboard.php">Dashboard</a>
                 </li>
-                <li class="li-info">
-                    <p><?php    //TODO tu zrobić tak zeby sie pojawialo ile jest uzytkownikow
-                        if ($usersnum) {
-                            echo 'Zarejestrowano użytkowników: ' . $usersnum['liczbaUzytkownikow'];
-                        }
-                    ?></p>
-                </li>
             <?php
                 }
                 if(isset($_SESSION["username"])){

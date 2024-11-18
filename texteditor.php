@@ -15,7 +15,7 @@ include('importy/header.php');
     <div class="toolbar">
         <ul class="tool-list">
             <li class="tool">
-                <button type="button" data-command="justifyLeft" class="tool-btn">
+                <button type="button" class="tool-btn">
                     <i class="fas fa-align-left"></i>
                 </button>
             </li>

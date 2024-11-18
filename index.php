@@ -4,7 +4,13 @@ include('importy/bazadanych.php');
 include('importy/funkcje.php');
 include('importy/config.php');
 include('importy/header.php');
-
+    if ($stm = $connect->prepare('SELECT COUNT(ID) as liczbaUzytkownikow FROM users WHERE is_admin != 1;')) {
+        $stm->execute();
+    
+        $result = $stm->get_result();
+        // var_dump( $result->fetch_assoc() );
+        $usersnum = $result->fetch_assoc();
+    }
 
 if ($stm = $connect->prepare('SELECT * FROM posts JOIN users ON users.ID = posts.autor ORDER BY date DESC;')) {
     $stm->execute();
@@ -16,9 +22,9 @@ if ($stm = $connect->prepare('SELECT * FROM posts JOIN users ON users.ID = posts
 //var_dump($_SESSION)
 ?>
 
-<div class="container width-7">
-    <div class="row justify-content-center">
-        <div class="md-10">
+<div class="width-10">
+    <div class="row">
+        <div class="column md-10">
             <?php 
             while ($record = $result->fetch_assoc()) {
                 if ($record['private'] == 1) {
@@ -45,6 +51,15 @@ if ($stm = $connect->prepare('SELECT * FROM posts JOIN users ON users.ID = posts
                 }
             } 
             ?>
+        </div>
+        <div class="right">
+            <div class="info">
+                <span class="gradient-text">Liczba zarejestrowantych: <?php echo $usersnum['liczbaUzytkownikow']?></span>
+                <hr>
+                <span class="gradient-text">inna liczba np pi</span>
+                <hr>
+                <span class="gradient-text">jeszcze inna liczba 14</span>
+            </div>
         </div>
     </div>
 </div>
