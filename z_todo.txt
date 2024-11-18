@@ -16,6 +16,7 @@ pomysły na nazwy:
 
 -   rejestracja nowych uzytkownikow!
 
+-   motywy do strony
 
 -   zrobic cos z dodawaniem postów/kontentu zmienic na text-area (pogadać z bargłem)
 --- texteditor?
