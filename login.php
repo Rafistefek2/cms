@@ -50,7 +50,7 @@ if (isset($_POST['email'])) {
             }
         }
         else {
-            set_message('Nie ma takiego użytkownika.', 'warning');
+            set_message('Błędny login lub hasło', 'warning');
         }
         $stm->close();
     }

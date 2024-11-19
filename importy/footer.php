@@ -6,7 +6,7 @@
     function dawajTosta(message, position, type) {
     const toast = document.getElementById("toast");
     toast.className = toast.className + " show";
-    console.log("pokazuje")
+    // console.log("pokazuje")
 
     if (message){ 
         toast.innerText = message;

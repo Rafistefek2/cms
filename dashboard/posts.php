@@ -1,21 +1,22 @@
 <?php 
 
-include('importy/bazadanych.php');
-include('importy/funkcje.php');
-include('importy/config.php');
+include('../importy/bazadanych.php');
+include('../importy/funkcje.php');
+include('../importy/config.php');
 Zaloguj_sie_zeby_odwiedzic();   //? strona dostępna tylko po zalogowaniu
 chroniona_adminem();
-include('importy/header.php');
+include('../importy/header.php');
+
 
 if (isset($_GET['delete'])) {
-    if ($stm = $connect->prepare('DELETE FROM users WHERE id = ?')) {
+    if ($stm = $connect->prepare('DELETE FROM posts WHERE id = ?')) {
         $hashed = SHA1($_POST['password']);
         $stm->bind_param('i', $_GET['delete']);
         $stm->execute();
         //? usuwanie uzytkownika o id $_GET['delete']
 
-        set_message('Użytkownik o id ' . $_GET['delete'] .' został usunięty', "success");
-        header('Location:users.php');
+        set_message('Post o id ' . $_GET['delete'] .' został usunięty', "success");
+        header('Location:posts.php');
 
         $stm->close();
         die();
@@ -27,7 +28,7 @@ if (isset($_GET['delete'])) {
 }
 
 
-if ($stm = $connect->prepare('SELECT * FROM users WHERE ID != 1')) {
+if ($stm = $connect->prepare('SELECT * FROM posts')) {
     $stm->execute();
 
     //? bezpiecznie przesyłanie zmiennych do przygotowania statement
@@ -42,29 +43,29 @@ if ($stm = $connect->prepare('SELECT * FROM users WHERE ID != 1')) {
 <div class="container width-7">
     <div class="row justify-content-center">
         <div class="md-10">
-            <h1 class="page-title">Użytkownicy</h1>
+            <h1 class="page-title">Posty</h1>
             <button class="btn-add">
-                <a href="usersmgm/usersadd.php">Dodaj nowego użytkownika</a>
+                <a href="postsmgm/postsadd.php">Dodaj nowego posta</a>
             </button>
             <table class="table table-striped table-hover">
                 <tr>
                     <th>Id</th>
-                    <th>Username</th>
-                    <th>Email</th>
-                    <th>Status</th>
-                    <th>Administrator</th>
+                    <th>Tytuł</th>
+                    <th>Autor ID</th>   <!--TODO Zmienić na username autora (querry)-->
+                    <th>Treść</th>
+                    <th>Prywatność</th>
                     <th class="text-center"><span>Edytuj | Usuń</span></th>
                 </tr>
                 <?php while ($record = $result->fetch_assoc()) { ?>
                     <tr>
                         <td><?php echo $record['ID']?></td>
-                        <td><?php echo $record['username']?></td>
-                        <td><?php echo $record['email']?></td>
-                        <td class="td-bool"><?php echo $record['active']?></td>
-                        <td class="td-bool"><?php echo $record['is_admin']?></td>
-                        <td class="text-center">
-                            <a href="/cms/usersmgm/usersedit.php?id=<?php echo $record['ID']?>">Edytuj</a> |
-                            <a href="/cms/users.php?delete=<?php echo $record['ID']?>">Usuń</a>
+                        <td><?php echo $record['title']?></td>
+                        <td><?php echo $record['autor']?></td>
+                        <td><?php echo $record['content']?></td>
+                        <td class="td-bool"><?php echo $record['private']?></td>
+                        <td>
+                            <a href="/cms/postsmgm/postsedit.php?id=<?php echo $record['ID']?>">Edytuj</a> |
+                            <a href="/cms/posts.php?delete=<?php echo $record['ID']?>">Usuń</a>
                         </td>
                     </tr>
                 <?php } ?>
@@ -76,7 +77,7 @@ if ($stm = $connect->prepare('SELECT * FROM users WHERE ID != 1')) {
 <?php        
     }
     else {
-        echo'nie znaleziono użytkowników';
+        echo'nie znaleziono posta';
     }
         
     $stm->close();
@@ -85,5 +86,5 @@ else {
     echo'statement problem nie można przygotować';
 }
 
-include("importy/footer.php");
+include("../importy/footer.php");
 ?>

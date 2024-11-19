@@ -16,8 +16,8 @@ include('importy/header.php');
     <div class="row">
         <div class="md-10">
             <h1 class="page-title">Dashboard</h1>
-            <a href="users.php">Zarządzanie użytkownikami</a> |
-            <a href="posts.php">Zarządzanie postami</a> |
+            <a href="dashboard/users.php">Zarządzanie użytkownikami</a> |
+            <a href="dashboard/posts.php">Zarządzanie postami</a> |
             <a href="" class="inactive">Zarządzanie </a>
         </div>
     </div>

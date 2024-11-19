@@ -55,10 +55,14 @@ if ($stm = $connect->prepare('SELECT * FROM posts JOIN users ON users.ID = posts
         <div class="right">
             <div class="info">
                 <span class="gradient-text">Liczba zarejestrowantych: <?php echo $usersnum['liczbaUzytkownikow']?></span>
-                <hr>
-                <span class="gradient-text">inna liczba np pi</span>
-                <hr>
-                <span class="gradient-text">jeszcze inna liczba 14</span>
+                <?php 
+                    if (isset($_SESSION['username'])) {
+                        ?>
+                            <hr>
+                            <span class="gradient-text">Zalogowano jako: <?php echo $_SESSION['username']?></span>
+                        <?php
+                    }
+                ?>
             </div>
         </div>
     </div>

@@ -41,7 +41,10 @@
                 if(!isset($_SESSION["username"])){
             ?>
                 <li>
-                    <a href="/cms/login.php">Log in</a>
+                    <a href="/cms/login.php">Zaloguj</a>
+                </li>
+                <li>
+                    <a href="/cms/register.php">Zarejestruj</a>
                 </li>
             <?php
                 }
@@ -55,7 +58,7 @@
                 if(isset($_SESSION["username"])){
             ?>
                 <li>
-                    <a href="/cms/logout.php">Logout</a>
+                    <a href="/cms/logout.php">Wyloguj</a>
                 </li>
             <?php
                 }
