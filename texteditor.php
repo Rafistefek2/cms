@@ -15,49 +15,44 @@ include('importy/header.php');
     <div class="toolbar">
         <ul class="tool-list">
             <li class="tool">
-                <button type="button" class="tool-btn">
-                    <i class="fas fa-align-left"></i>
-                </button>
-            </li>
-            <li class="tool">
-                <button type="button" data-command="justifyCenter" class="tool-btn">
-                    <i class="fas fa-align-center"></i>
-                </button>
-            </li>
-            <li class="tool">
-                <button type="button" data-command="bold" class="tool-btn onoff">
+                <button type="button" onclick='formatText("bold")' class="tool-btn onoff">
                     <i class="fas fa-bold"></i>
                 </button>
             </li>
             <li class="tool">
-                <button type="button" data-command="italic" class="tool-btn onoff">
+                <button type="button" onclick='formatText("italic")' class="tool-btn onoff">
                     <i class="fas fa-italic"></i>
                 </button>
             </li>
             <li class="tool">
-                <button type="button" data-command="underline" class="tool-btn onoff">
+                <button type="button" onclick='formatText("underline")' class="tool-btn onoff">
                     <i class="fas fa-underline"></i>
                 </button>
             </li>
             <li class="tool">
-                <button type="button" data-command="insertOrderedList" class="tool-btn">
+                <button type="button" onclick='formatText("insertOrderedList")' class="tool-btn">
                     <i class="fas fa-list-ol"></i>
                 </button>
             </li>
             <li class="tool">
-                <button type="button" data-command="insertUnorderedList" class="tool-btn">
+                <button type="button" onclick='formatText("insertUnorderedList")' class="tool-btn">
                     <i class="fas fa-list-ul"></i>
                 </button>
             </li>
             <li class="tool">
-                <button type="button" data-command="createlink" class="tool-btn">
+                <button type="button" onclick='formatText("createlink")' class="tool-btn">
                     <i class="fas fa-link"></i>
                 </button>
             </li>
+            <!-- <li class="tool">
+                <button type="button" onclick='formatText("unlink")' class="tool-btn">
+                    <i class="fas fa-link-slash"></i>
+                </button>
+            </li> -->
         </ul>
     </div>
     <div id="output" contenteditable="true"></div>
-    <script src="js/texteditor.js"></script>
+    <script defer src="js/texteditor.js"></script>
 </div>
 
 <?php
