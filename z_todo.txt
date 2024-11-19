@@ -17,6 +17,7 @@ pomysły na nazwy:
 -   przerobic text editor ()
 
 -   rejestracja nowych uzytkownikow!
+-   generator haseł w js 
 
 -   motywy do strony
 
