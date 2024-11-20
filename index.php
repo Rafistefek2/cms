@@ -21,36 +21,32 @@ if ($stm = $connect->prepare('SELECT * FROM posts JOIN users ON users.ID = posts
     if ($result->num_rows > 0) {
 //var_dump($_SESSION)
 ?>
-
+<script src="/cms/js/post-logic.js"></script>
 <div class="width-10">
     <div class="row">
         <div class="column md-10">
-            <?php 
+        <?php
+            $postCounter = 1; //? zacznie zliczac posty
+
             while ($record = $result->fetch_assoc()) {
-                if ($record['private'] == 1) {
-                    if(isset($_SESSION['username'])) {   //? tutaj są posty prywatne
-                    ?>
-                        <div class="post">
-                            <span class="post-title"><?php echo $record['title']?></span>
-                            <span class="post-date"><?php echo $record['date']?></span>
-                            <span class="post-autor">Autor: <?php echo $record['username']?></span>
-                            <div class="post-content"><?php echo $record['content']?></div>
+                $isPrivate = $record['private'] == 1;
+                $canView = $isPrivate ? isset($_SESSION['username']) : true;
+                
+                if ($canView) { ?>
+                    <div class="post" style="--order: <?php echo $postCounter; ?>">
+                        <span class="post-title"><?php echo $record['title']; ?></span>
+                        <span class="post-date"><?php echo $record['date']; ?></span>
+                        <span class="post-autor">Autor: <?php echo $record['username']; ?></span>
+                        <div class="post-content post-hidden" aria-expanded="false">
+                            <?php echo $record['content']; ?>
                         </div>
-                    <?php
-                    }
-                }
-                else{   //? tu są posty publiczne
-                    ?>
-                        <div class="post">
-                            <span class="post-title"><?php echo $record['title']?></span>
-                            <span class="post-date"><?php echo $record['date']?></span>
-                            <span class="post-autor">Autor: <?php echo $record['username']?></span>
-                            <div class="post-content"><?php echo $record['content']?></div>
-                        </div>
-                    <?php
-                }
-            } 
-            ?>
+                        <?php if (!$isPrivate) { ?>
+                            <button class="btn-show">czytaj więcej</button>
+                        <?php } ?>
+                    </div>
+            <?php } 
+                $postCounter++;     //? zwiększa counter
+            } ?>
         </div>
         <div class="right">
             <div class="info">

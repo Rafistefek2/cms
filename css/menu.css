@@ -1,8 +1,12 @@
 /*
     Plik odpowiedzialny za style do headera
 */
+:root{
+    --color-header: #657166;
+}
+
 header {
-    background-color: #657166;
+    background-color: var(--color-header);
     color: white;
     padding: 10px 20px;
 }
@@ -43,7 +47,7 @@ nav {
 #menu-button {
     display: none;
     color: white;
-    background-color: #657166;
+    background-color: var(--color-header);
     border: none;
     font-size: 18px;
     cursor: pointer;
@@ -55,7 +59,7 @@ nav {
     #menu {
         display: none;
         flex-direction: column;
-        background-color: #657166;
+        background-color: var(--color-header);
         position: absolute;
         top: 30px;
         left: 0;
