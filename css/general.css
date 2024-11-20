@@ -197,6 +197,7 @@ span{
 }
 .post {
     border: 2px solid black;
+    border-radius: 1em;
     position: relative;
     padding: 1em;
     margin: 1em 0 2.5em;
@@ -276,7 +277,7 @@ span{
     color: white;
     font-size: 18px;
     border-radius: 4px;
-    transition: 2s;
+    transition: .5s;
     text-decoration: line-through;
     margin: 0 auto 0;
     display: block;

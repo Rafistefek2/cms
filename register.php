@@ -11,7 +11,8 @@ if (isset($_POST['email'])) {
 
     echo "testuje";
 
-    if ($stm = $connect->prepare('SELECT * FROM users WHERE email = ? AND password = ?')) {
+    if ($stm = $connect->prepare(/*'INSERT INTO `users`(`username`, `email`, `password`, `active`, `is_admin`) VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]')'*/)) {
+
         $hashed = SHA1($_POST['password']);
         $stm->bind_param('ss', $_POST['email'], $hashed);
         $stm->execute();
@@ -58,12 +59,7 @@ if (isset($_POST['email'])) {
 
                 <!-- Submit button -->
                 <button type="submit" id="register-btn" class="btn-disabled" disabled>Zarejestruj</button>
-                <script>
-                    function zmiana(){  //! do testa!!!!
-                        document.querySelector("#register-btn").classList.replace("btn-disabled", "btn-accept");
-                        document.querySelector("#register-btn").removeAttribute("disabled")
-                    }
-                </script>
+                <script src='js/register-form.js'></script>
             </form>
         </div>
     </div>
