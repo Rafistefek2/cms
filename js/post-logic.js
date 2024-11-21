@@ -1,12 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-    //? kod się wywalal to gpt zaproponowal zaladowanie domu boje sie sprawdzic 
-    //?                                     czy defer dzialaloby tak samo
-
-
     document.querySelectorAll('.post').forEach(post => {
         const postContent = post.querySelector('.post-content');
         const showButton = post.querySelector('.btn-show');
-
 
         // Check if content exceeds the visible area
         const isOverflowing = postContent.scrollHeight > postContent.offsetHeight;
@@ -17,11 +12,17 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             // Attach the event listener for toggling content
             showButton.addEventListener('click', () => {
-                const isExpanded = postContent.classList.contains('post-showed');
+                console.log("klikam klikam");
+                const isExpanded = postContent.classList.contains('expanded');
                 
-                postContent.classList.toggle('post-hidden', isExpanded);
-                postContent.classList.toggle('post-showed', !isExpanded);
+                // Toggle the `expanded` class on the `postContent`
+                if (isExpanded) {
+                    postContent.classList.remove('expanded');
+                } else {
+                    postContent.classList.add('expanded');
+                }
 
+                // Update the button state and text
                 showButton.setAttribute('aria-expanded', !isExpanded);
                 showButton.textContent = isExpanded ? 'czytaj więcej' : 'zwiń';
             });

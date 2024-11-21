@@ -61,24 +61,25 @@ if (isset($_POST['email'])) {
 ?>
 
 <div class="container width-5">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center  background-animation">
         <div class="md-6">
-            <form method="post">
-                <!-- Email input -->
-                <div class="form-outline">
-                    <input placeholder="" required type="email" id="email" class="form-control" name="email"/>
-                    <label class="form-label" for="email">Email address</label>
-                </div>
-
-                <!-- Password input -->
-                <div class="form-outline">
-                    <input placeholder="" required type="password" id="password" class="form-control" name="password"/>
-                    <label class="form-label" for="password">Password</label>
-                </div>
-
-                <!-- Submit button -->
-                <button type="submit" class="btn-accept">Sign in</button>
-            </form>
+                <form method="post">
+                    <!-- Email input -->
+                    <div class="form-outline">
+                        <input placeholder="" required type="email" id="email" class="form-control" name="email"/>
+                        <label class="form-label" for="email">Email address</label>
+                    </div>
+                
+                    <!-- Password input -->
+                    <div class="form-outline">
+                        <input placeholder="" required type="password" id="password" class="form-control" name="password"/>
+                        <label class="form-label" for="password">Password</label>
+                    </div>
+                
+                    <!-- Submit button -->
+                    <button type="submit" class="btn-accept">Sign in</button>
+                </form>
+            </div>
         </div>
     </div>
 </div>

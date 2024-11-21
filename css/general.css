@@ -4,7 +4,6 @@
     box-sizing: border-box;
 }
 :root{
-    --color-header: #657166;
     --color-back: #DAEBE3;
     --color-panel: #F3C3B2;
 }
@@ -207,17 +206,17 @@ span{
     padding: 1em;
     margin: 1em 0 2.5em;
     max-width: 60em;
-    animation: dropIn 1s ease forwards;
-    animation-delay: calc(var(--order) * 100ms);
+    animation: dropIn 1.5s ease forwards;
+    animation-delay: calc(var(--order) * 150ms);
 }
 @keyframes dropIn{
     from {
         transform: translateX(-1000px);
-        display: none;
+        visibility: hidden;
     }
     to {
         transform: translateX(0);
-        display: block;
+        visibility: visible;
     }
 }
 
@@ -272,18 +271,19 @@ span{
 .post-content {
     margin: 0.5em 0.5em 0.7em;
     padding-right: 2em;
-    max-height: 3.6em; /* Height for 2 lines, adjust based on font size and line-height */
+    max-height: 3.6em;
     overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 2; /* Show only 2 lines initially */
+    -webkit-line-clamp: 2; /*? clamp to 2 lines */
     -webkit-box-orient: vertical;
     transition: max-height 3s ease;
 }
 
 .post-content.expanded {
-    max-height: 100vh; /* Allow the content to expand fully */
-    display: block; /* Switch to block display for full content */
-    -webkit-line-clamp: unset; /* Remove clamping */
+    transition: max-height 3s ease;
+    max-height: 100vh; /* ? rozwin do konca */
+    display: block; 
+    -webkit-line-clamp: unset; /*? Remove clamping */
 }
 .btn-show{
     padding: 0.2em 0.5em 0.2em;
@@ -336,6 +336,18 @@ span{
 } */
 .align-items-center{
     align-items: center;
+}
+.background-animation::before{
+    content: '';
+    position: absolute;
+    background-image: url(../grafika/sengokuhara.png);
+    background-size: cover;
+    inset: 0;
+    z-index: -1;
+
+    mask-image: url(../grafika/inkoverlay-Trim-ezgif.com-loop-count.gif);
+    mask-size: cover;
+    mask-position: center;
 }
 
 @media screen and (max-width: 50em) {
