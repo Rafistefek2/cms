@@ -288,7 +288,10 @@ span{
 .btn-show{
     padding: 0.2em 0.5em 0.2em;
     text-align: center;
-    min-width: 5em;
+    min-width: 9em;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: var(--color-header);
 }
 .info{
     background-color: var(--color-panel);

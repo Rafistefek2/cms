@@ -5,7 +5,7 @@ function formdobry(){  //! do testa!!!!
 
 function formzly(){  //! do testa!!!!
     document.querySelector("#register-btn").classList.replace("btn-accept", "btn-disabled");
-    document.querySelector("#register-btn").setAttribute('disabled')
+    document.querySelector("#register-btn").setAttribute('disabled', '')
 }
 
 document.addEventListener('DOMContentLoaded', () => {

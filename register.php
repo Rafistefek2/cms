@@ -11,13 +11,15 @@ if (isset($_POST['email'])) {
 
     echo "testuje";
 
-    if ($stm = $connect->prepare(/*'INSERT INTO `users`(`username`, `email`, `password`, `active`, `is_admin`) VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]')'*/)) {
+    if ($stm = $connect->prepare("INSERT INTO `users`(`username`, `email`, `password`, `active`, `is_admin`) VALUES (?, ?, ?, 1, 0);")) {
 
         $hashed = SHA1($_POST['password']);
-        $stm->bind_param('ss', $_POST['email'], $hashed);
+        $stm->bind_param('sss', $_POST['username'],$_POST['email'], $hashed,);
         $stm->execute();
+        $result = $stm->get_result();
 
-
+        set_message("Pomyślnie dodano użytkownika", "success");
+        header("Location:/cms/");
 
 
         $stm->close();
