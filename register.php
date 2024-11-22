@@ -31,12 +31,12 @@ if (isset($_POST['email'])) {
 } 
 ?>
 
-<div class="container width-5 milky-background border-rounded">
-    <div class="row justify-content-center background-animation">
+<div class="container width-5 background-animation">
+    <div class="row justify-content-center milky-background border-rounded">
         <div class="md-6">
             <form method="post" class="align-items-center">
                 <!-- Username input -->
-                 <h1 class=page-title>Rejestracja</h1>
+                <h1 class='page-title'>Rejestracja</h1>
                 <div class="form-outline">
                     <input placeholder="" required type="text" id="username" class="form-control" name="username"/>
                     <label class="form-label" for="username">Username</label>

@@ -34,30 +34,30 @@
         <a href="/cms/" class="pagelogo">CMS</a>
         <button id="menu-button" aria-expanded="false"><i class="fas fa-bars"></i></button>
         <ul id="menu">
-                <li>
+                <li class="indent">
                     <a href="/cms/texteditor.php">TextEditor</a>
                 </li>
             <?php 
                 if(!isset($_SESSION["username"])){
             ?>
-                <li>
+                <li class="indent">
                     <a href="/cms/login.php">Zaloguj</a>
                 </li>
-                <li>
+                <li class="indent">
                     <a href="/cms/register.php">Zarejestruj</a>
                 </li>
             <?php
                 }
                 if(isset($_SESSION["is_admin"]) && $_SESSION["is_admin"] == 1){
             ?>
-                <li>
+                <li class="indent">
                     <a href="/cms/dashboard.php">Dashboard</a>
                 </li>
             <?php
                 }
                 if(isset($_SESSION["username"])){
             ?>
-                <li>
+                <li class="indent">
                     <a href="/cms/logout.php">Wyloguj</a>
                 </li>
             <?php

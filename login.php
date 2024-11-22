@@ -60,8 +60,8 @@ if (isset($_POST['email'])) {
 } 
 ?>
 
-<div class="container width-5">
-    <div class="row justify-content-center background-animation milky-background border-rounded">
+<div class="container width-5 background-animation">
+    <div class="row justify-content-center milky-background border-rounded">
         <div class="md-6 ">
                 <form method="post">
                     <h1 class="page-title">Logowanie</h1>
