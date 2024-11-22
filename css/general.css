@@ -274,6 +274,7 @@ span{
     max-height: 3.6em;
     overflow: hidden;
     display: -webkit-box;
+    line-clamp: 2;
     -webkit-line-clamp: 2; /*? clamp to 2 lines */
     -webkit-box-orient: vertical;
     transition: max-height 3s ease;
@@ -283,6 +284,7 @@ span{
     transition: max-height 3s ease;
     max-height: 100vh; /* ? rozwin do konca */
     display: block; 
+    line-clamp: unset;
     -webkit-line-clamp: unset; /*? Remove clamping */
 }
 .btn-show{
@@ -304,6 +306,7 @@ span{
 }
 .info .gradient-text {
     background: linear-gradient(to left, red,blue);
+    background-clip: text;
     -webkit-background-clip: text;      /* ? maska tekstu na background*/
     -webkit-text-fill-color: transparent;   /* ? przezroczysty tekst*/
 }
