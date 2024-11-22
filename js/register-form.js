@@ -1,16 +1,13 @@
-//? funkcja odblokowująca wysłanie formularza
-function formdobry(){
+function formdobry(){  //! do testa!!!!
     document.querySelector("#register-btn").classList.replace("btn-disabled", "btn-accept");
     document.querySelector("#register-btn").removeAttribute("disabled")
 }
 
-//? funckja blokująca wysłanie formularza
-function formzly(){ 
+function formzly(){  //! do testa!!!!
     document.querySelector("#register-btn").classList.replace("btn-accept", "btn-disabled");
     document.querySelector("#register-btn").setAttribute('disabled', '')
 }
 
-//? dzialanie formularza rejestracji
 document.addEventListener('DOMContentLoaded', () => {
     const usernameInput = document.querySelector('#username');
     const emailInput = document.querySelector('#email');
@@ -19,9 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const registerButton = document.querySelector('#register-btn');
     const formInputs = [usernameInput, emailInput, passwordInput, repeatPasswordInput];
 
-    //? tworzy wskaźnik siły hasła
+    // Create and append the password strength indicator
     const strengthIndicator = document.createElement('span');
-    strengthIndicator.style.display = 'none'; //? schowany na początku
+    strengthIndicator.style.display = 'none'; // Initially hidden
     strengthIndicator.style.color = '#666';
     strengthIndicator.style.marginTop = '5px';
     passwordInput.parentNode.appendChild(strengthIndicator);
@@ -29,14 +26,14 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateStrengthIndicator(password) {
         let strength = 0;
 
-        //? sprawdza siłe hasla
+        // Check password strength criteria
         if (password.length >= 8) strength++;
         if (/[A-Z]/.test(password)) strength++;
         if (/[a-z]/.test(password)) strength++;
         if (/\d/.test(password)) strength++;        //? sprawdza cyfry tak samo jak [0-9] ciekawostka
         if (/[\W_]/.test(password)) strength++;     //? znaki specjalne + (underscore)
 
-        //? nadanie styli wskaźnikowi siły hasła
+        // Update the text of the strength indicator
         const strengthLevels = [
                                 '<div class="pass-str" style="background-color: #ff4d4d; width: 20%">Bardzo słabe</div>', 
                                 '<div class="pass-str" style="background-color: #ff944d; width: 40%">Słabe</div>',
@@ -46,10 +43,10 @@ document.addEventListener('DOMContentLoaded', () => {
                             ];
 
         if (password.length > 0) {
-            strengthIndicator.style.display = 'inline'; //? pojawia sięwskaźnik
-            strengthIndicator.innerHTML = strengthLevels[strength - 1];
+            strengthIndicator.style.display = 'inline'; // Make it visible
+            strengthIndicator.innerHTML = strengthLevels[strength - 1] || 'Too Weak';
         } else {
-            strengthIndicator.style.display = 'none'; //? schowaj jeśli usunięto z formularza
+            strengthIndicator.style.display = 'none'; // Hide if no password
         }
 
         return strength;
@@ -69,7 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
         */
         const isPasswordValid = passwordInput.value.length >= 8;
         const isPasswordMatch = passwordInput.value === repeatPasswordInput.value;
-
         const isPasswordStrong = updateStrengthIndicator(passwordInput.value) >= 3;
         //? haslo musi byc przynajmniej srednie zeby mozna było wysłać formularz
 
@@ -80,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    //? dodaje listener dla każdej zmiany w formularzu
+    // Add event listeners to inputs
     formInputs.forEach(input => {
         input.addEventListener('input', validateForm);
     });
