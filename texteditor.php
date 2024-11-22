@@ -4,7 +4,7 @@ include('importy/bazadanych.php');
 include('importy/funkcje.php');
 include('importy/config.php');
 
-
+Zaloguj_sie_zeby_odwiedzic();
 include('importy/header.php');
 
 
@@ -30,6 +30,21 @@ include('importy/header.php');
                 </button>
             </li>
             <li class="tool">
+                <button type="button" onclick='formatText("headone")' class="tool-btn onoff">
+                    <i class="fas fa-heading">1</i>
+                </button>
+            </li>
+            <li class="tool">
+                <button type="button" onclick='formatText("headtwo")' class="tool-btn onoff">
+                    <i class="fas fa-heading">2</i>
+                </button>
+            </li>
+            <li class="tool">
+                <button type="button" onclick='formatText("headthree")' class="tool-btn onoff">
+                    <i class="fas fa-heading">3</i>
+                </button>
+            </li>
+            <li class="tool">
                 <button type="button" onclick='formatText("insertOrderedList")' class="tool-btn">
                     <i class="fas fa-list-ol"></i>
                 </button>
@@ -42,6 +57,11 @@ include('importy/header.php');
             <li class="tool">
                 <button type="button" onclick='formatText("createlink")' class="tool-btn">
                     <i class="fas fa-link"></i>
+                </button>
+            </li>
+            <li class="tool">
+                <button type="button" class="tool-btn" style="float: right;" id="wysylajdophp">
+                    <i>Submit</i>
                 </button>
             </li>
             <!-- <li class="tool">

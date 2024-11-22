@@ -44,6 +44,15 @@ function formatText(command) {
         case 'underline':
             wrapWithTag(range, 'u');
             break;
+        case 'headone':
+            wrapWithTag(range, 'h1');
+            break;
+        case 'headtwo':
+            wrapWithTag(range, 'h2');
+            break;
+        case 'headthree':
+            wrapWithTag(range, 'h3');
+            break;
         case 'createlink':
             const url = prompt('Enter the URL:');
             if (url) wrapWithTag(range, 'a', { href: url });
@@ -74,3 +83,60 @@ function insertList(range, listType) {
     list.appendChild(listItem);
     range.insertNode(list);
 }
+
+function htmlToMarkdown(html) {
+    //? pogrubienia
+    html = html.replace(/<b>(.*?)<\/b>/g, '**$1**'); 
+
+    //? pochylenia
+    html = html.replace(/<i>(.*?)<\/i>/g, '*$1*'); 
+
+    //? naglowki
+    html = html.replace(/<h1>(.*?)<\/h1>/g, '# $1');
+    html = html.replace(/<h2>(.*?)<\/h2>/g, '## $1');
+    html = html.replace(/<h3>(.*?)<\/h3>/g, '### $1');
+
+    //? link
+    html = html.replace(/<a href="(.*?)">(.*?)<\/a>/g, '[$2]($1)');
+
+    //? br mowi samo za siebie
+    html = html.replace(/<br\s*\/?>/g, '\n');
+
+    //? divy ktore powstaja przy tworzeniu nowej lini
+    html = html.replace(/<div>(.*?)<\/div>/g, '\n\n$1\n\n');
+
+    // Handle unordered lists (<ul> and <li>)
+    html = html.replace(/<ul>(.*?)<\/ul>/gs, (match, content) => {
+        return content.replace(/<li>(.*?)<\/li>/g, '- $1');
+    });
+
+    // Handle ordered lists (<ol> and <li>)
+    html = html.replace(/<ol>(.*?)<\/ol>/gs, (match, content) => {
+        let counter = 0;
+        return content.replace(/<li>(.*?)<\/li>/g, () => {
+            counter++;
+            return `${counter}. $1`;
+        });
+    });
+
+    // Handle nested lists (indentation for nested <ul> or <ol>)
+    html = html.replace(/<\/li>\s*<ul>/g, '\n  '); // Add two spaces for nesting
+
+    // Remove remaining HTML tags
+    html = html.replace(/<[^>]+>/g, '');
+
+    return html.trim();
+}
+
+
+document.querySelector("#wysylajdophp").addEventListener("click", ()=>{
+    let data = document.querySelector("#output").innerHTML;
+    let mdData = htmlToMarkdown(data)
+
+
+    fetch(`processpost.php?data=${encodeURIComponent(mdData)}`)
+    .catch(error => console.error('Error:', error));
+
+    window.location.href = `/cms/importy/processpost.php?data=${encodeURIComponent(mdData)}`
+});
+
