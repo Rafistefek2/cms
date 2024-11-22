@@ -61,9 +61,10 @@ if (isset($_POST['email'])) {
 ?>
 
 <div class="container width-5">
-    <div class="row justify-content-center  background-animation">
-        <div class="md-6">
+    <div class="row justify-content-center background-animation milky-background border-rounded">
+        <div class="md-6 ">
                 <form method="post">
+                    <h1 class="page-title">Logowanie</h1>
                     <!-- Email input -->
                     <div class="form-outline">
                         <input placeholder="" required type="email" id="email" class="form-control" name="email"/>

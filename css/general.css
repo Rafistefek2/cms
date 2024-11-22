@@ -16,6 +16,7 @@ body {
 }
 .container{
     margin: auto;
+    margin-top: 2em;
 }
 .width-5{
     width: 50%;
@@ -354,6 +355,13 @@ span{
     mask-image: url(../grafika/inkoverlay-Trim-ezgif.com-loop-count.gif);
     mask-size: cover;
     mask-position: center;
+}
+.milky-background{
+    background-color: rgba(255, 255,255, 0.8);
+    padding: -4em 2em -2em;
+}
+.border-rounded{
+    border-radius: 10px;
 }
 
 @media screen and (max-width: 50em) {

@@ -1,25 +1,25 @@
 -   WYMYSLIC KURWA NAZWE
 pomysły na nazwy:
-    K atalog
-    N adzorujący
-    O programowaie
-    P przeznaczone
-    E ksploatacji
-        i
-    R ruchu
-        w
-    S ystemie 
+    coś 
+    mogłem
+    spsuć
 
 
+-   POBRAC FONTY DO PLIKU
 
 -   wlasne style robic trzeba!
 
--   przerobic text editor ()
+-   zapisywanie do pliku md (dowiedziec sie co to)
+-   tworzenie postów przez użytkowników
 
--   rejestracja nowych uzytkownikow!
+-   czat na żywo?
+
+-   przerobic text editor 
+
 -   generator haseł w js 
 
 -   motywy do strony
 
--   zrobic cos z dodawaniem postów/kontentu zmienic na text-area (pogadać z bargłem)
+-   zrobic cos z dodawaniem postów/kontentu 
+    zmienic na text-area (pogadać z bargłem)
 --- texteditor?
