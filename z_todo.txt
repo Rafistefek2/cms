@@ -9,17 +9,8 @@ pomysły na nazwy:
 
 -   wlasne style robic trzeba!
 
--   zapisywanie do pliku md (dowiedziec sie co to)
--   tworzenie postów przez użytkowników
-
 -   czat na żywo?
-
--   przerobic text editor 
 
 -   generator haseł w js
 
 -   motywy do strony
-
--   zrobic cos z dodawaniem postów/kontentu 
-    zmienic na text-area (pogadać z bargłem)
---- texteditor?

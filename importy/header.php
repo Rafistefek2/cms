@@ -34,12 +34,10 @@
         <a href="/cms/" class="pagelogo">CMS</a>
         <button id="menu-button" aria-expanded="false"><i class="fas fa-bars"></i></button>
         <ul id="menu">
-                <li class="indent">
-                    <a href="/cms/texteditor.php">TextEditor</a>
-                </li>
+                
             <?php 
                 if(!isset($_SESSION["username"])){
-            ?>
+            ?>  
                 <li class="indent">
                     <a href="/cms/login.php">Zaloguj</a>
                 </li>
@@ -57,6 +55,9 @@
                 }
                 if(isset($_SESSION["username"])){
             ?>
+                <li class="indent">
+                    <a href="/cms/userspostadd.php">Dodaj post</a>
+                </li>
                 <li class="indent">
                     <a href="/cms/logout.php">Wyloguj</a>
                 </li>

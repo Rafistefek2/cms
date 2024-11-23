@@ -211,7 +211,9 @@ span{
     padding: 1em;
     margin: 1em 0 2.5em;
     max-width: 60em;
-    animation: dropIn 1.5s ease forwards;
+    animation: dropIn 2s ease forwards;
+    /* animation-timeline: view();
+    animation-range: entry -30% cover 20%; */
     animation-delay: calc(var(--order) * 150ms);
 }
 @keyframes dropIn{

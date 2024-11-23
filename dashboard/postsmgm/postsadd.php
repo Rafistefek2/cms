@@ -1,11 +1,11 @@
 <?php 
 
-include('../importy/bazadanych.php');
-include('../importy/funkcje.php');
-include('../importy/config.php');
+include('../../importy/bazadanych.php');
+include('../../importy/funkcje.php');
+include('../../importy/config.php');
 Zaloguj_sie_zeby_odwiedzic();   //? strona dostępna tylko po zalogowaniu
 chroniona_adminem();
-include('../importy/header.php');
+include('../../importy/header.php');
 
 if (isset($_POST['title'])) {
     if ($stm = $connect->prepare('INSERT INTO posts(title,content,private,autor,date) VALUES (?, ?, ?, ?, ?)')) {
@@ -68,5 +68,5 @@ if (isset($_POST['title'])) {
 <?php        
 
 
-include("../importy/footer.php");
+include("../../importy/footer.php");
 ?>

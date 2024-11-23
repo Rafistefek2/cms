@@ -41,8 +41,14 @@ function formatText(command) {
         case 'italic':
             wrapWithTag(range, 'i');
             break;
-        case 'underline':
-            wrapWithTag(range, 'u');
+        // case 'underline':
+        //     wrapWithTag(range, 'u');
+        //     break;
+        case 'headone':
+            wrapWithTag(range, 'h1');
+            break;
+        case 'headtwo':
+            wrapWithTag(range, 'h2');
             break;
         case 'createlink':
             const url = prompt('Enter the URL:');
@@ -119,3 +125,17 @@ function htmlToMarkdown(html) {
 
     return html.trim();
 }
+
+document.getElementById('przeslij').addEventListener('click', () => {
+    const myString = htmlToMarkdown(document.querySelector("#output").innerHTML);
+
+    // Create and submit a form programmatically
+
+    const input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = 'data';
+    input.value = myString;
+
+    document.querySelector("#form").appendChild(input);
+    document.querySelector('#form').submit();
+});

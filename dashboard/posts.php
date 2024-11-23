@@ -64,8 +64,8 @@ if ($stm = $connect->prepare('SELECT * FROM posts')) {
                         <td><?php echo $record['content']?></td>
                         <td class="td-bool"><?php echo $record['private']?></td>
                         <td>
-                            <a href="/cms/postsmgm/postsedit.php?id=<?php echo $record['ID']?>">Edytuj</a> |
-                            <a href="/cms/posts.php?delete=<?php echo $record['ID']?>">Usuń</a>
+                            <a href="/cms/dashboard/postsmgm/postsedit.php?id=<?php echo $record['ID']?>">Edytuj</a> |
+                            <a href="/cms/dashboard/posts.php?delete=<?php echo $record['ID']?>">Usuń</a>
                         </td>
                     </tr>
                 <?php } ?>

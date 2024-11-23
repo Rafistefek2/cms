@@ -63,8 +63,8 @@ if ($stm = $connect->prepare('SELECT * FROM users WHERE ID != 1')) {
                         <td class="td-bool"><?php echo $record['active']?></td>
                         <td class="td-bool"><?php echo $record['is_admin']?></td>
                         <td class="text-center">
-                            <a href="/cms/usersmgm/usersedit.php?id=<?php echo $record['ID']?>">Edytuj</a> |
-                            <a href="/cms/users.php?delete=<?php echo $record['ID']?>">Usuń</a>
+                            <a href="/cms/dashboard/usersmgm/usersedit.php?id=<?php echo $record['ID']?>">Edytuj</a> |
+                            <a href="/cms/dashboard/users.php?delete=<?php echo $record['ID']?>">Usuń</a>
                         </td>
                     </tr>
                 <?php } ?>
