@@ -58,7 +58,7 @@ if ($stm = $connect->prepare('SELECT * FROM posts JOIN users ON users.ID = posts
                 <span class="post-title"><?php echo $record['title']; ?></span>
                 <span class="post-date"><?php echo $record['date']; ?></span>
                 <span class="post-autor">Autor: <?php echo $record['username']; ?></span>
-                <div class="post-content post-hidden" aria-expanded="false">
+                <di class="post-content post-hidden" aria-expanded="false">
                     <?php
                                 if (file_exists($record['content']) && is_readable($record['content'])) {
                                     $content = file_get_contents($record['content']);
@@ -70,8 +70,7 @@ if ($stm = $connect->prepare('SELECT * FROM posts JOIN users ON users.ID = posts
                                     echo "File does not exist or cannot be read.";
                                 }
                             ?>
-                </div>
-                <button class="btn-show">czytaj więcej</button>
+                </di <button class="btn-show">czytaj więcej</button>
             </div>
             <?php } 
                     $postCounter++;     //? zwiększa counter
