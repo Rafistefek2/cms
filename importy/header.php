@@ -31,7 +31,12 @@
             <a href="/cms/" class="pagelogo">CMS</a>
             <button id="menu-button" aria-expanded="false"><i class="fas fa-bars"></i></button>
             <div class="themes">
-                (tu będą motywy)
+                <input type="radio" name="theme" id="domyslny" checked>
+                <label for="domyslny">Domyslny</label>
+                <input type="radio" name="theme" id="kontrast">
+                <label for="kontrast">Kontrast</label>
+                <input type="radio" name="theme" id="alter">
+                <label for="alter">Alternatywny</label>
             </div>
             <ul id="menu">
 
