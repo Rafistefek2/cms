@@ -13,13 +13,13 @@ include('importy/MarkdownParser.php');
         $usersnum = $result->fetch_assoc();
     }
 
-if ($stm = $connect->prepare('SELECT * FROM posts JOIN users ON users.ID = posts.autor ORDER BY date DESC;')) {
+if ($stm = $connect->prepare('SELECT * FROM posts JOIN users ON users.ID = posts.autor ORDER BY posts.added DESC;')) {
     $stm->execute();
 
     $result = $stm->get_result();
     //var_dump($result->num_rows);
     
-    if ($result->num_rows > 0) {
+    
 //var_dump($_SESSION)
 ?>
 <script src="/cms/js/post-logic.js"></script>
@@ -27,37 +27,38 @@ if ($stm = $connect->prepare('SELECT * FROM posts JOIN users ON users.ID = posts
     <div class="row">
         <div class="relative-width md-10">
             <?php
-            $postCounter = 1; //? zacznie zliczac posty
+            if ($result->num_rows > 0) {
+                $postCounter = 1; //? zacznie zliczac posty
 
-            while ($record = $result->fetch_assoc()) {
-                $isPrivate = $record['private'] == 1;
-                $canView = $isPrivate ? isset($_SESSION['username']) : true;
-                
-                if ($canView) { ?>
-                    <div class="post" style="--order: <?php echo $postCounter; ?>">
-                        <span class="post-title"><?php echo $record['title']; ?></span>
-                        <span class="post-date"><?php echo $record['date']; ?></span>
-                        <span class="post-autor">Autor: <?php echo $record['username']; ?></span>
-                        <div class="post-content post-hidden" aria-expanded="false">
-                        <?php
-                            if (file_exists($record['content']) && is_readable($record['content'])) {
-                                $content = file_get_contents($record['content']);
+                while ($record = $result->fetch_assoc()) {
+                    $isPrivate = $record['private'] == 1;
+                    $canView = $isPrivate ? isset($_SESSION['username']) : true;
+                    
+                    if ($canView) { ?>
+                        <div class="post" style="--order: <?php echo $postCounter; ?>">
+                            <span class="post-title"><?php echo $record['title']; ?></span>
+                            <span class="post-date"><?php echo $record['date']; ?></span>
+                            <span class="post-autor">Autor: <?php echo $record['username']; ?></span>
+                            <div class="post-content post-hidden" aria-expanded="false">
+                            <?php
+                                if (file_exists($record['content']) && is_readable($record['content'])) {
+                                    $content = file_get_contents($record['content']);
 
-                                $Parsedown = new Parsedown();
-                                echo nl2br($Parsedown->text($content));
+                                    $Parsedown = new Parsedown();
+                                    echo nl2br($Parsedown->text($content));
 
-                            } else {
-                                echo "File does not exist or cannot be read.";
-                            }
-                        ?>
+                                } else {
+                                    echo "File does not exist or cannot be read.";
+                                }
+                            ?>
+                            </div>
+                            <?php if (!$isPrivate) { ?>
+                                <button class="btn-show">czytaj więcej</button>
+                            <?php } ?>
                         </div>
-                        <?php if (!$isPrivate) { ?>
-                            <button class="btn-show">czytaj więcej</button>
-                        <?php } ?>
-                    </div>
-            <?php } 
-                $postCounter++;     //? zwiększa counter
-            } ?>
+                <?php } 
+                    $postCounter++;     //? zwiększa counter
+                } ?>
         </div>
         <div class="right">
             <div class="info">
@@ -71,6 +72,9 @@ if ($stm = $connect->prepare('SELECT * FROM posts JOIN users ON users.ID = posts
                     }
                 ?>
             </div>
+            <div class="czat">
+                tu będzie kiedyś czat
+            </div>
         </div>
     </div>
 </div>
@@ -78,7 +82,13 @@ if ($stm = $connect->prepare('SELECT * FROM posts JOIN users ON users.ID = posts
 <?php        
     }
     else {
-        echo'nie znaleziono posta';
+        ?>
+            <div class="post">
+                <div class="post-content">
+                    Brak postów do wyświetlenia
+                </div>
+            </div>
+        <?php
     }
         
     $stm->close();
@@ -88,7 +98,7 @@ else {
 }
     if(isset($_SESSION['is_admin']) && $_SESSION['is_admin'] == 1){
         ?>
-            <p>
+            <p style="display: none">
                 to jest kontent dla adminow
             </p>
         

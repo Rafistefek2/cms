@@ -305,6 +305,13 @@ span{
     border-radius: 5px;
     background-color: var(--color-header);
 }
+.czat{
+    width: 20em;
+    height: 30em;
+    background-color: aliceblue;
+    margin-left: 1em;
+    margin-top: 3em;
+}
 .info{
     background-color: var(--color-panel);
     top: 4em;
@@ -313,7 +320,8 @@ span{
     font-weight: bold;
     margin-left: 1em;
     white-space: nowrap;
-    
+    width: 20em;
+    text-align: center;
 }
 .info .gradient-text {
     background: linear-gradient(to left, red,blue);
@@ -377,6 +385,7 @@ span{
 .relative-width{
     width: 70%;
 }
+
 @media screen and (max-width: 50em) {
     .info{
         display: none;
