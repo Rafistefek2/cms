@@ -12,6 +12,25 @@ include('importy/MarkdownParser.php');
         // var_dump( $result->fetch_assoc() );
         $usersnum = $result->fetch_assoc();
     }
+    if (isset($_SESSION['username'])) {
+        if ($stm = $connect->prepare('SELECT COUNT(ID) as liczbaPostow FROM posts')) {
+            $stm->execute();
+        
+            $result = $stm->get_result();
+            // var_dump( $result->fetch_assoc() );
+            $postsnum = $result->fetch_assoc();
+        }
+    }
+    else {
+        if ($stm = $connect->prepare('SELECT COUNT(ID) as liczbaPostow FROM posts WHERE private = 0')) {
+            $stm->execute();
+        
+            $result = $stm->get_result();
+            // var_dump( $result->fetch_assoc() );
+            $postsnum = $result->fetch_assoc();
+        }
+    }
+    
 
 if ($stm = $connect->prepare('SELECT * FROM posts JOIN users ON users.ID = posts.autor ORDER BY posts.added DESC;')) {
     $stm->execute();
@@ -35,12 +54,12 @@ if ($stm = $connect->prepare('SELECT * FROM posts JOIN users ON users.ID = posts
                     $canView = $isPrivate ? isset($_SESSION['username']) : true;
                     
                     if ($canView) { ?>
-                        <div class="post" style="--order: <?php echo $postCounter; ?>">
-                            <span class="post-title"><?php echo $record['title']; ?></span>
-                            <span class="post-date"><?php echo $record['date']; ?></span>
-                            <span class="post-autor">Autor: <?php echo $record['username']; ?></span>
-                            <div class="post-content post-hidden" aria-expanded="false">
-                            <?php
+            <div class="post" style="--order: <?php echo $postCounter; ?>">
+                <span class="post-title"><?php echo $record['title']; ?></span>
+                <span class="post-date"><?php echo $record['date']; ?></span>
+                <span class="post-autor">Autor: <?php echo $record['username']; ?></span>
+                <div class="post-content post-hidden" aria-expanded="false">
+                    <?php
                                 if (file_exists($record['content']) && is_readable($record['content'])) {
                                     $content = file_get_contents($record['content']);
 
@@ -51,29 +70,33 @@ if ($stm = $connect->prepare('SELECT * FROM posts JOIN users ON users.ID = posts
                                     echo "File does not exist or cannot be read.";
                                 }
                             ?>
-                            </div>
-                            <?php if (!$isPrivate) { ?>
-                                <button class="btn-show">czytaj więcej</button>
-                            <?php } ?>
-                        </div>
-                <?php } 
+                </div>
+                <button class="btn-show">czytaj więcej</button>
+            </div>
+            <?php } 
                     $postCounter++;     //? zwiększa counter
                 } ?>
         </div>
         <div class="right">
             <div class="info">
-                <span class="gradient-text">Liczba zarejestrowantych: <?php echo $usersnum['liczbaUzytkownikow']?></span>
+                <span class="gradient-text">Liczba zarejestrowantych:
+                    <?php echo $usersnum['liczbaUzytkownikow']?>
+                </span>
+                <hr>
+                <span class="gradient-text">Liczba postów na stronie:
+                    <?php echo $postsnum['liczbaPostow']?>
+                </span>
                 <?php 
                     if (isset($_SESSION['username'])) {
                         ?>
-                            <hr>
-                            <span class="gradient-text">Zalogowano jako: <?php echo $_SESSION['username']?></span>
-                        <?php
+                <hr>
+                <span class="gradient-text">Zalogowano jako: <?php echo $_SESSION['username']?></span>
+                <?php
                     }
                 ?>
             </div>
             <div class="czat">
-                tu będzie kiedyś czat
+                (tu będzie kiedyś czat)
             </div>
         </div>
     </div>
@@ -83,12 +106,12 @@ if ($stm = $connect->prepare('SELECT * FROM posts JOIN users ON users.ID = posts
     }
     else {
         ?>
-            <div class="post">
-                <div class="post-content">
-                    Brak postów do wyświetlenia
-                </div>
-            </div>
-        <?php
+<div class="post">
+    <div class="post-content">
+        Brak postów do wyświetlenia
+    </div>
+</div>
+<?php
     }
         
     $stm->close();
@@ -98,11 +121,11 @@ else {
 }
     if(isset($_SESSION['is_admin']) && $_SESSION['is_admin'] == 1){
         ?>
-            <p style="display: none">
-                to jest kontent dla adminow
-            </p>
-        
-        <?php
+<p style="display: none">
+    to jest kontent dla adminow
+</p>
+
+<?php
     }
 ?>
 
