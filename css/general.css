@@ -18,6 +18,9 @@ body {
     margin: auto;
     margin-top: 2em;
 }
+.width-3{
+    width: 30%;
+}
 .width-5{
     width: 50%;
 }
@@ -26,15 +29,14 @@ body {
 }
 .row{
     display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
     padding-left: 1em;
     padding-right: 1em;
     width: 100%;
 }
 .justify-content-center{
     justify-content: center;
-}
-.column{
-    margin: 0 auto 0;
 }
 .column .info{
     transform: translateX(2em);
@@ -210,7 +212,7 @@ span{
     position: relative;
     padding: 1em;
     margin: 1em 0 2.5em;
-    max-width: 60em;
+    width: 100%;
     animation: dropIn 2s ease forwards;
     /* animation-timeline: view();
     animation-range: entry -30% cover 20%; */
@@ -278,7 +280,8 @@ span{
 .post-content {
     margin: 0.5em 0.5em 0.7em;
     padding-right: 2em;
-    max-height: 3.6em;
+    width: 100%;
+    /* max-height: 3.6em; */
     overflow: hidden;
     display: -webkit-box;
     line-clamp: 2;
@@ -310,6 +313,7 @@ span{
     font-weight: bold;
     margin-left: 1em;
     white-space: nowrap;
+    
 }
 .info .gradient-text {
     background: linear-gradient(to left, red,blue);
@@ -324,8 +328,8 @@ span{
     border: none;
 }
 .right{
-    transform: translateX(2em);
-    transform: translateY(1.5em);
+    margin-left: auto;
+    margin-top: 2em;
 }
 .btn-disabled{
     background-color: #e93c3c;
@@ -370,9 +374,17 @@ span{
 .border-rounded{
     border-radius: 15px;
 }
-
+.relative-width{
+    width: 70%;
+}
 @media screen and (max-width: 50em) {
     .info{
         display: none;
+    }
+    .post{
+        width: 100%;
+    }
+    .relative-width{
+        width: 100%;
     }
 }

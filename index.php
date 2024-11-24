@@ -4,6 +4,7 @@ include('importy/bazadanych.php');
 include('importy/funkcje.php');
 include('importy/config.php');
 include('importy/header.php');
+include('importy/MarkdownParser.php');
     if ($stm = $connect->prepare('SELECT COUNT(ID) as liczbaUzytkownikow FROM users WHERE is_admin != 1;')) {
         $stm->execute();
     
@@ -24,8 +25,8 @@ if ($stm = $connect->prepare('SELECT * FROM posts JOIN users ON users.ID = posts
 <script src="/cms/js/post-logic.js"></script>
 <div class="width-10">
     <div class="row">
-        <div class="column md-10">
-        <?php
+        <div class="relative-width md-10">
+            <?php
             $postCounter = 1; //? zacznie zliczac posty
 
             while ($record = $result->fetch_assoc()) {
@@ -38,7 +39,17 @@ if ($stm = $connect->prepare('SELECT * FROM posts JOIN users ON users.ID = posts
                         <span class="post-date"><?php echo $record['date']; ?></span>
                         <span class="post-autor">Autor: <?php echo $record['username']; ?></span>
                         <div class="post-content post-hidden" aria-expanded="false">
-                            <?php echo $record['content']; ?>
+                        <?php
+                            if (file_exists($record['content']) && is_readable($record['content'])) {
+                                $content = file_get_contents($record['content']);
+
+                                $Parsedown = new Parsedown();
+                                echo nl2br($Parsedown->text($content));
+
+                            } else {
+                                echo "File does not exist or cannot be read.";
+                            }
+                        ?>
                         </div>
                         <?php if (!$isPrivate) { ?>
                             <button class="btn-show">czytaj więcej</button>

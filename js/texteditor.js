@@ -81,48 +81,51 @@ function insertList(range, listType) {
     range.insertNode(list);
 }
 
-
 function htmlToMarkdown(html) {
-    //? pogrubienia
-    html = html.replace(/<b>(.*?)<\/b>/g, '**$1**'); 
+    // Handle bold text (<b>)
+    html = html.replace(/<b>(.*?)<\/b>/g, (_, boldContent) => `**${boldContent}**`);
 
-    //? pochylenia
-    html = html.replace(/<i>(.*?)<\/i>/g, '*$1*'); 
+    // Handle italic text (<i>)
+    html = html.replace(/<i>(.*?)<\/i>/g, (_, italicContent) => `*${italicContent}*`);
 
-    //? naglowki
-    html = html.replace(/<h1>(.*?)<\/h1>/g, '# $1');
-    html = html.replace(/<h2>(.*?)<\/h2>/g, '## $1');
-    html = html.replace(/<h3>(.*?)<\/h3>/g, '### $1');
+    // Handle headings (<h1>, <h2>, <h3>)
+    html = html.replace(/<h1>(.*?)<\/h1>/g, (_, headingContent) => `# ${headingContent}\n`);
+    html = html.replace(/<h2>(.*?)<\/h2>/g, (_, headingContent) => `## ${headingContent}\n`);
+    html = html.replace(/<h3>(.*?)<\/h3>/g, (_, headingContent) => `### ${headingContent}\n`);
 
-    //? link
-    html = html.replace(/<a href="(.*?)">(.*?)<\/a>/g, '[$2]($1)');
+    // Handle links (<a>)
+    html = html.replace(/<a href="(.*?)">(.*?)<\/a>/g, (_, url, linkText) => `[${linkText}](${url})`);
 
-    //? br mowi samo za siebie
+    // Handle line breaks (<br>)
     html = html.replace(/<br\s*\/?>/g, '\n');
 
-    //? divy ktore powstaja przy tworzeniu nowej lini
-    html = html.replace(/<div>(.*?)<\/div>/g, '\n\n$1\n\n');
+    // Handle divs (treat as blocks or paragraphs)
+    html = html.replace(/<div>(.*?)<\/div>/gs, (_, divContent) => `\n\n${divContent.trim()}\n\n`);
 
-    // Handle unordered lists (<ul> and <li>)
-    html = html.replace(/<ul>(.*?)<\/ul>/gs, (match, content) => {
-        return content.replace(/<li>(.*?)<\/li>/g, '- $1');
+     // Handle unordered lists (<ul> and <li>)
+    html = html.replace(/<ul>(.*?)<\/ul>/gs, (_, listContent) => {
+        return `\n` + listContent.replace(/<li>(.*?)<\/li>/g, (_, listItemContent) => {
+            return `- ${listItemContent.trim()}\n`;
+        }) + `\n`; // Add newline after the entire list
     });
 
     // Handle ordered lists (<ol> and <li>)
-    html = html.replace(/<ol>(.*?)<\/ol>/gs, (match, content) => {
-        let counter = 0;
-        return content.replace(/<li>(.*?)<\/li>/g, () => {
+    html = html.replace(/<ol>(.*?)<\/ol>/gs, (_, listContent) => {
+        let counter = 0; // Reset the counter for each <ol>
+        return `\n` + listContent.replace(/<li>(.*?)<\/li>/g, (_, listItemContent) => {
             counter++;
-            return `${counter}. $1`;
-        });
+            const cleanContent = listItemContent
+                .replace(/&nbsp;/g, ' ') // Decode non-breaking spaces
+                .trim(); // Trim whitespace
+            // return `${counter}. ${cleanContent}\n`; // Add a new line after each list item
+            return counter + '. ' + cleanContent + '\n'
+        }) + `\n`; // Add newline after the entire list
     });
 
-    // Handle nested lists (indentation for nested <ul> or <ol>)
-    html = html.replace(/<\/li>\s*<ul>/g, '\n  '); // Add two spaces for nesting
+    // Remove any remaining HTML tags
+    html = html.replace(/<[^>]+>/g, ''); // Strip any remaining HTML
 
-    // Remove remaining HTML tags
-    html = html.replace(/<[^>]+>/g, '');
-
+    // Trim and return the
     return html.trim();
 }
 

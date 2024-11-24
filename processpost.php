@@ -14,9 +14,26 @@
     }
     
     if (file_put_contents($filename, $data) === false) {
+        header("Location: /cms/");
         set_message("Błąd przy zatwierdzaniu posta", "error");
     }
     else{
-        set_message("Pomyślnie zatwierdzono dane do posta", "success");
+        if (isset($_POST['title'])) {
+            if ($stm = $connect->prepare('INSERT INTO posts(title,content,private,autor,date) VALUES (?, ?, ?, ?, ?)')) {
+                $stm->bind_param('sssss', $_POST['title'], $filename,$_POST['private'], $_SESSION['id'], $_POST['date']);
+                $stm->execute();
+                //? dodawanie posta o podanych zmiennych
+        
+                set_message("Pomyślnie zatwierdzono dane do posta", "success");
+                header("Location: /cms/");
+        
+                $stm->close();
+                die();
+                
+            }
+            else {
+                echo'statement problem nie można przygotować';
+            }
+        }
     }
 ?>
