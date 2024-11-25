@@ -1,6 +1,6 @@
 # proč cms
 
-Takže ano, nejprve importujte databázi, člověče, protože váš web nebude chtít fungovat.
+Takže ano, nejprve importujte bázi, člověče, protože váš web nebude chtít fungovat.
 
 Pokusím se projekt nahrát na nějaký free hosting, který nám ukázal Gonet.
 
