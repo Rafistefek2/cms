@@ -9,8 +9,8 @@ Nebo možná těch 5 zlotých utratím za trpaslíka
 Pro zobrazení se musíte nejprve přihlásit
 
 Účty jsou takové:
- - admin@mail.com - tajné
- - rafal@mail.com - tajné
- - david@mail.com - tajné
+ - admin@mail.com - secret
+ - rafal@mail.com - secret
+ - david@mail.com - secret
 
 A pokud se něco v databázi změní, může administrátor změnit hesla všem, kteří je potřebují.
