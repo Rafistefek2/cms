@@ -1,16 +1,16 @@
-# dlaczego cms
+# proč cms
 
-A więc tak, najpierw to se zimportuj chłopie baze bo ci strona nie będzie chciała działać.
+Takže ano, nejprve importujte databázi, člověče, protože váš web nebude chtít fungovat.
 
-Postaram się wrzucić projekt na jakiś darmowy hosting co nam gonet pokazał.
+Pokusím se projekt nahrát na nějaký free hosting, který nám ukázal Gonet.
 
-Albo może wydam te 5 złotych na mikrusa co się będę
+Nebo možná těch 5 zlotých utratím za trpaslíka
 
-się najpierw zalogować trzeba bo tak to tylko przeglądać się da
+Pro zobrazení se musíte nejprve přihlásit
 
-Konta to tak:
-   - admin@mail.com - secret
-   - rafal@mail.com - secret
-   - david@mail.com - secret
+Účty jsou takové:
+ - admin@mail.com - tajné
+ - rafal@mail.com - tajné
+ - david@mail.com - tajné
 
-A jak w bazie jest coś pozmieniane to admin może zmienić hasła wszystkim co potrzebują.
+A pokud se něco v databázi změní, může administrátor změnit hesla všem, kteří je potřebují.
