@@ -1,1 +1,0 @@
-tylko **jedna **linijka tekstu ma byc w tym poscie bo mnie *członek *strzeli

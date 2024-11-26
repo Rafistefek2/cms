@@ -102,7 +102,7 @@ function htmlToMarkdown(html) {
     html = html.replace(/<br\s*\/?>/g, '\n');
 
     //? ten caly contenteditable jakies dziwne divy robi to je wywalic trzeba
-    html = html.replace(/<div>(.*?)<\/div>/gs, (_, divContent) => `\n\n${divContent.trim()}\n\n`);
+    html = html.replace(/<div>(.*?)<\/div>/gs, (_, divContent) => `\n${divContent.trim()}\n\n`);
 
      //? nienaiwdze list nienawidze list
     html = html.replace(/<ul>(.*?)<\/ul>/gs, (_, listContent) => {

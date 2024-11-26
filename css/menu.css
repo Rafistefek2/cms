@@ -58,7 +58,6 @@ nav {
     cursor: pointer;
 }
 
-
 /* Responsive styles */
 @media screen and (max-width: 50em) {
     #menu {

@@ -16,3 +16,5 @@ pomysły na nazwy:
 -   generator haseł w js
 
 -   motywy do strony
+-   przepisać style na uzywanie custom values 
+        zeby motywy fajnie działały :3

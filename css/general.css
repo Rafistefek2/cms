@@ -285,7 +285,7 @@ span{
     overflow: hidden;
     display: -webkit-box;
     line-clamp: 2;
-    -webkit-line-clamp: 2; /*? clamp to 2 lines */
+    -webkit-line-clamp: 3; /*? clamp to 3 lines */
     -webkit-box-orient: vertical;
     transition: max-height 3s ease;
 }

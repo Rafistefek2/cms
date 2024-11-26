@@ -7,7 +7,7 @@
     
     $path = __DIR__ . "/usersposts/" . $_SESSION['id'];
 
-    $filename = $path . "/" . str_replace(" ", "_",$_POST['title']) . ".md";
+    $filename = $path . "/" . uniqid() . ".md";
 
     if (!is_dir($path)) {
         mkdir($path, 0777, true);
