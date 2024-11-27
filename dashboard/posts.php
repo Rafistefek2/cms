@@ -36,7 +36,7 @@ if ($stm = $connect->prepare('SELECT * FROM posts')) {
     $result = $stm->get_result();
     //var_dump($result->num_rows);
     
-    if ($result->num_rows > 0) {
+    
 //var_dump($_SESSION)
 ?>
 
@@ -51,34 +51,42 @@ if ($stm = $connect->prepare('SELECT * FROM posts')) {
                 <tr>
                     <th>Id</th>
                     <th>Tytuł</th>
-                    <th>Autor ID</th>   <!--TODO Zmienić na username autora (querry)-->
+                    <th>Autor ID</th>
+                    <!--TODO Zmienić na username autora (querry)-->
                     <th>Treść</th>
                     <th>Prywatność</th>
                     <th class="text-center"><span>Edytuj | Usuń</span></th>
                 </tr>
-                <?php while ($record = $result->fetch_assoc()) { ?>
-                    <tr>
-                        <td><?php echo $record['ID']?></td>
-                        <td><?php echo $record['title']?></td>
-                        <td><?php echo $record['autor']?></td>
-                        <td><?php echo $record['content']?></td>
-                        <td class="td-bool"><?php echo $record['private']?></td>
-                        <td>
-                            <a href="/cms/dashboard/postsmgm/postsedit.php?id=<?php echo $record['ID']?>">Edytuj</a> |
-                            <a href="/cms/dashboard/posts.php?delete=<?php echo $record['ID']?>">Usuń</a>
-                        </td>
-                    </tr>
-                <?php } ?>
+                <?php 
+                if ($result->num_rows > 0) {
+                    while ($record = $result->fetch_assoc()) { ?>
+                <tr>
+                    <td><?php echo $record['ID']?></td>
+                    <td><?php echo $record['title']?></td>
+                    <td><?php echo $record['autor']?></td>
+                    <td><?php echo $record['content']?></td>
+                    <td class="td-bool"><?php echo $record['private']?></td>
+                    <td>
+                        <a href="/cms/dashboard/postsmgm/postsedit.php?id=<?php echo $record['ID']?>">Edytuj</a> |
+                        <a href="/cms/dashboard/posts.php?delete=<?php echo $record['ID']?>">Usuń</a>
+                    </td>
+                </tr>
+                <?php 
+                    }
+                }
+                else { ?>
+                <tr>
+                    <td colspan="6" style="text-align: center">Brak postów do wyświetlenia</td>
+                </tr>
+                <?php }
+                ?>
             </table>
         </div>
     </div>
 </div>
 
 <?php        
-    }
-    else {
-        echo'nie znaleziono posta';
-    }
+    
         
     $stm->close();
 }

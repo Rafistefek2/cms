@@ -26,18 +26,20 @@
         $usersnum = $result->fetch_assoc();
     }
     ?>
-    <script src="js/themes.js"></script>
+    <script src="/cms/js/themes.js"></script>
     <header>
         <nav>
             <a href="/cms/" class="pagelogo">CMS</a>
-            
+
             <div class="themes">
-                <input type="radio" name="theme" id="domyslny" checked>
-                <label for="domyslny">Domyslny</label>
-                <input type="radio" name="theme" id="kontrast">
-                <label for="kontrast">Kontrast</label>
-                <input type="radio" name="theme" id="alter">
-                <label for="alter">Alternatywny</label>
+                <input type="radio" name="theme" id="domyslny" class="theme-input" checked>
+                <label for="domyslny" class="vs-hid">Domyslny</label>
+
+                <input type="radio" name="theme" id="kontrast" class="theme-input">
+                <label for="kontrast" class="vs-hid">Kontrast</label>
+
+                <input type="radio" name="theme" id="alter" class="theme-input">
+                <label for="alter" class="vs-hid">Alternatywny</label>
             </div>
             <button id="menu-button" aria-expanded="false"><i class="fas fa-bars"></i></button>
             <ul id="menu">

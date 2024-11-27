@@ -35,7 +35,7 @@ if ($stm = $connect->prepare('SELECT * FROM users WHERE ID != 1')) {
     $result = $stm->get_result();
     //var_dump($result->num_rows);
     
-    if ($result->num_rows > 0) {
+    
 //var_dump($_SESSION)
 ?>
 
@@ -55,18 +55,26 @@ if ($stm = $connect->prepare('SELECT * FROM users WHERE ID != 1')) {
                     <th>Administrator</th>
                     <th class="text-center"><span>Edytuj | Usuń</span></th>
                 </tr>
-                <?php while ($record = $result->fetch_assoc()) { ?>
-                    <tr>
-                        <td><?php echo $record['ID']?></td>
-                        <td><?php echo $record['username']?></td>
-                        <td><?php echo $record['email']?></td>
-                        <td class="td-bool"><?php echo $record['active']?></td>
-                        <td class="td-bool"><?php echo $record['is_admin']?></td>
-                        <td class="text-center">
-                            <a href="/cms/dashboard/usersmgm/usersedit.php?id=<?php echo $record['ID']?>">Edytuj</a> |
-                            <a href="/cms/dashboard/users.php?delete=<?php echo $record['ID']?>">Usuń</a>
-                        </td>
-                    </tr>
+                <?php
+                    if ($result->num_rows > 0) {
+                        while ($record = $result->fetch_assoc()) { ?>
+                <tr>
+                    <td><?php echo $record['ID']?></td>
+                    <td><?php echo $record['username']?></td>
+                    <td><?php echo $record['email']?></td>
+                    <td class="td-bool"><?php echo $record['active']?></td>
+                    <td class="td-bool"><?php echo $record['is_admin']?></td>
+                    <td class="text-center">
+                        <a href="/cms/dashboard/usersmgm/usersedit.php?id=<?php echo $record['ID']?>">Edytuj</a> |
+                        <a href="/cms/dashboard/users.php?delete=<?php echo $record['ID']?>">Usuń</a>
+                    </td>
+                </tr>
+                <?php } 
+                    }
+                    else { ?>
+                <tr>
+                    <td colspan="6" style="text-align: center">Brak użytkowników do wyświetlenia</td>
+                </tr>
                 <?php } ?>
             </table>
         </div>
@@ -74,10 +82,7 @@ if ($stm = $connect->prepare('SELECT * FROM users WHERE ID != 1')) {
 </div>
 
 <?php        
-    }
-    else {
-        echo'nie znaleziono użytkowników';
-    }
+    
         
     $stm->close();
 }

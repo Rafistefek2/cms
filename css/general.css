@@ -6,6 +6,15 @@
 :root{
     --color-back: #DAEBE3;
     --color-panel: #F3C3B2;
+    --form-outline: #007bff;
+    --text-white: #ffffff;
+    --text-black: #000000;
+    --table-odd: #e2cac1;
+    --table-even: #e2dcd6;
+    --odd-hover: #F3C3B2;
+    --even-hover: #FDE8D3;
+    --form-border: #ccc;
+    --select-white: white;
 }
 
 body {
@@ -63,29 +72,34 @@ body {
     width: 100%;
     padding: 10px 15px;
     font-size: 16px;
-    border: 2px solid #ccc;
+    border: 2px solid var(--form-border);
     border-radius: 4px;
     outline: none;
     transition: border 0.5s;
     box-sizing: border-box;
+    color: var(--text-black);
+    background-color: var(--select-white);
 }
 
 .form-control:focus {
-    border: 2px solid #007BFF;
+    border: 2px solid var(--form-outline);
+    
 }
 .form-select {
     width: 100%;
     padding: 10px 15px;
     font-size: 16px;
-    border: 2px solid #ccc;
+    border: 2px solid var(--form-border);
     border-radius: 4px;
     outline: none;
     transition: border 0.5s;
     box-sizing: border-box;
+    color: var(--text-black);
+    background-color: var(--select-white);
 }
 
 .form-select:focus {
-    border: 2px solid #007BFF;
+    border: 2px solid var(--form-outline);
 }
 
 .form-label {
@@ -94,7 +108,7 @@ body {
     left: 15px;
     transform: translateY(-50%);
     font-size: 16px;
-    color: #999;
+    color: var(--form-border);
     pointer-events: none;
     transition: all 0.3s;
 }
@@ -102,20 +116,20 @@ body {
     top: -10px;
     left: 10px;
     font-size: 12px;
-    color: #0000ff;
+    color: var(--form-outline);
     padding: 1px;
 }
 .form-control:not(:placeholder-shown) + .form-label{
     top: -10px;
     left: 10px;
     font-size: 12px;
-    color: #0000ff;
+    color: var(--form-outline);
     padding: 1px;
 }
 .btn-accept{
     width: 100%;
     height: 2em;
-    color: white;
+    color: var(--text-white);
     font-size: 18px;
     border-radius: 4px;
     /* background-color: #F3C3B2; */
@@ -155,6 +169,7 @@ th{
 td{
     padding: 0.5em 0.5em 0.5em;
     max-width: 32em;
+    color: var(--text-black);
 }
 span{
     white-space: nowrap;
@@ -163,17 +178,17 @@ span{
     transition: all .5s;
 }
 .table-striped tr:nth-child(odd){
-    background-color: #e2cac1;
+    background-color: var(--table-odd);
 }
 .table-striped tr:nth-child(even){
-    background-color: #e2dcd6;
+    background-color: var(--table-even)
 }
 .table-hover tr:not(:first-child):nth-child(odd):hover{
-    background-color: #F3C3B2;
+    background-color: var(--odd-hover);
     scale: 1.025;
 }
 .table-hover tr:not(:first-child):nth-child(even):hover{
-    background-color: #FDE8D3;
+    background-color: var(--even-hover);
     scale: 1.025;
 }
 .td-bool{
@@ -189,7 +204,7 @@ span{
 .btn-add{
     min-width: 50%;
     height: 2em;
-    color: white;
+    color: var(--text-white);
     font-size: 18px;
     border-radius: 4px;
     background-color: var(--color-header);
@@ -197,7 +212,7 @@ span{
     margin: 0.3em;
 }
 .btn-add a{
-    color: white;
+    color: var(--text-white);
     text-decoration: none;
 }
 .btn-add:hover{
@@ -207,7 +222,7 @@ span{
     scale: 1.05;
 }
 .post {
-    border: 2px solid black;
+    border: 2px solid var(--text-black);
     border-radius: 1em;
     position: relative;
     padding: 1em;
@@ -217,6 +232,7 @@ span{
     /* animation-timeline: view();
     animation-range: entry -30% cover 20%; */
     animation-delay: calc(var(--order) * 150ms);
+    color: var(--text-black);
 }
 @keyframes dropIn{
     from {
@@ -301,9 +317,10 @@ span{
     padding: 0.2em 0.5em 0.2em;
     text-align: center;
     min-width: 9em;
-    border: 2px solid black;
+    border: 2px solid var(--text-black);
     border-radius: 5px;
     background-color: var(--color-header);
+    color: var(--text-black);
 }
 .czat{
     width: 20em;
@@ -315,7 +332,7 @@ span{
 .info{
     background-color: var(--color-panel);
     top: 4em;
-    color: white;
+    color: var(--text-white);
     padding: 1em 0.5em 1em;
     font-weight: bold;
     margin-left: 1em;
@@ -343,7 +360,7 @@ span{
     background-color: #e93c3c;
     width: 100%;
     height: 2em;
-    color: white;
+    color: var(--text-white);
     font-size: 18px;
     border-radius: 4px;
     transition: .5s;
@@ -385,6 +402,96 @@ span{
 .relative-width{
     width: 70%;
 }
+
+.vs-hid{
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+.themes{
+    display: flex;
+    width: fit-content;
+    margin-inline: auto;
+    gap: 2em;
+    width: 9em;
+    height: 2em;
+    padding: 0.5em 1em;
+    background-color: var(--color-panel);
+    border-radius: 5px;
+
+}
+
+.themes input[type="radio"]{
+    appearance: none;
+    width: 1.2em;
+    height: 1.2em;
+    outline: 2px solid var(--radio-color, currentColor);
+    outline-offset: 2px;
+    border-radius: 50%;
+}
+
+.themes input[type="radio"]:checked{
+    background-color: var(--radio-color);
+}
+
+input[type="radio"]#domyslny{
+    --radio-color: #93dbd2;
+}
+input[type="radio"]#kontrast{
+    --radio-color: yellow;
+}
+input[type="radio"]#alter{
+    --radio-color: red;
+}
+
+:root:has(#domyslny:checked){
+    --color-back: #DAEBE3;
+    --color-panel: #F3C3B2;
+    --form-outline: #007bff;
+    --text-white: #ffffff;
+    --text-black: #000000;
+    --table-odd: #e2cac1;
+    --table-even: #e2dcd6;
+    --odd-hover: #F3C3B2;
+    --even-hover: #FDE8D3;
+    --form-border: #ccc;
+    --select-white: white;
+}
+:root:has(#kontrast:checked){
+    --color-back: #050505;
+    --color-panel: #e27047;
+    --form-outline: #04cf0f;
+    --text-white: #e3f53f;
+    --text-black: #e5ff00;
+    --table-odd: #b1503d;
+    --table-even: #aa6b28;
+    --odd-hover: #7e7b7a;
+    --even-hover: #998e83;
+    --color-header: rgba(43, 41, 41, 0.801);
+    --form-border: #0073ff;
+    --select-white: rgb(177, 162, 162);
+}
+:root:has(#alter:checked){
+    --color-back: #ff4949;
+    --color-panel: #dcf744;
+    --form-outline: #5900ff;
+    --text-white: #ffffff;
+    --text-black: #000000;
+    --table-odd: #4b64f0;
+    --table-even: #cd90ff;
+    --odd-hover: #006eff;
+    --even-hover: #c230fc;
+    --color-header: rgba(221, 145, 5, 0.801);
+    --form-border: #ff009d;
+    --select-white: rgb(248, 195, 195);
+}
+
+
 
 @media screen and (max-width: 50em) {
     .info{
