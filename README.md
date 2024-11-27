@@ -14,3 +14,24 @@ Pro zobrazení se musíte nejprve přihlásit
  - david@mail.com - secret
 
 A pokud se něco v databázi změní, může administrátor změnit hesla všem, kteří je potřebují.
+
+
+---------------todo---------------
+
+-   WYMYSLIC KURWA NAZWE
+pomysły na nazwy:
+    coś 
+    mogłem
+    sspierdolic
+
+
+-   POBRAC FONTY DO PLIKU
+
+- sprawdzić co z modyfikacją i dodawaniem postów przez dashboard
+
+-   wlasne style robic trzeba!
+
+-   czat na żywo?
+
+-   generator haseł w js
+
