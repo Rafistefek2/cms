@@ -564,8 +564,6 @@ input[type="radio"]#alter{
 }
 
 
-
-
 @media screen and (max-width: 50em) {
     .info{
         display: none;

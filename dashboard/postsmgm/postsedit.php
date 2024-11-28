@@ -1,11 +1,11 @@
 <?php 
 
-include('../importy/bazadanych.php');
-include('../importy/funkcje.php');
-include('../importy/config.php');
+include('../../importy/bazadanych.php');
+include('../../importy/funkcje.php');
+include('../../importy/config.php');
 Zaloguj_sie_zeby_odwiedzic();   //? strona dostępna tylko po zalogowaniu
 chroniona_adminem();
-include('../importy/header.php');
+include('../../importy/header.php');
 
 if (isset($_POST['title'])) {
     //? aktualizowanie danych posta
@@ -42,13 +42,15 @@ if (isset($_GET['id'])) {
             <form method="post">
                 <!-- title input -->
                 <div class="form-outline mb-4">
-                    <input placeholder="" required type="text" id="title" class="form-control" name="title" value="<?php echo $post['title']?>"/>
+                    <input placeholder="" required type="text" id="title" class="form-control" name="title"
+                        value="<?php echo $post['title']?>" />
                     <label class="form-label" for="email">Tytuł</label>
                 </div>
 
                 <!-- content input -->
                 <div class="form-outline mb-4">
-                    <input placeholder="" required type="" id="content" class="form-control" name="content" value="<?php echo $post['content']?>"/>
+                    <input placeholder="" required type="" id="content" class="form-control" name="content"
+                        value="<?php echo $post['content']?>" />
                     <label class="form-label" for="content">Content</label>
                 </div>
 
@@ -61,10 +63,11 @@ if (isset($_GET['id'])) {
                     </select>
                 </div>
 
-                
+
                 <!-- date select -->
                 <div class="form-outline mb-4">
-                    <input placeholder="" required type="date" id="date" class="form-control" name="date" value="<?php echo $post['date']?>">
+                    <input placeholder="" required type="date" id="date" class="form-control" name="date"
+                        value="<?php echo $post['date']?>">
                     <label class="form-label" for="date">Data</label>
                 </div>
 
@@ -87,5 +90,5 @@ if (isset($_GET['id'])) {
     die();
 }
 
-include("../importy/footer.php");
+include("../../importy/footer.php");
 ?>

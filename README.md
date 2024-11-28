@@ -24,14 +24,14 @@ pomysły na nazwy:
     mogłem
     sspierdolic
 
+    chciałbym
+    móc
+    spać
+    na
+    zawodowych
+
 
 -   POBRAC FONTY DO PLIKU
-
--   sprawdzić co z modyfikacją i dodawaniem postów przez dashboard
-
--   wlasne style robic trzeba!
-
--   czat na żywo?
 
 -   generator haseł w js
 

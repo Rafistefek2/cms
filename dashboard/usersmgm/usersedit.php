@@ -1,11 +1,11 @@
 <?php 
 
-include('../importy/bazadanych.php');
-include('../importy/funkcje.php');
-include('../importy/config.php');
+include('../../importy/bazadanych.php');
+include('../../importy/funkcje.php');
+include('../../importy/config.php');
 Zaloguj_sie_zeby_odwiedzic();   //? strona dostępna tylko po zalogowaniu
 chroniona_adminem();
-include('../importy/header.php');
+include('../../importy/header.php');
 
 if (isset($_POST['username'])) {
     //? aktualizowanie danych użytkownika
@@ -53,12 +53,14 @@ if (isset($_GET['id'])) {
             <form method="post">
                 <!-- Username input -->
                 <div class="form-outline mb-4">
-                    <input placeholder="" type="text" id="username" class="form-control active" name="username" value="<?php echo $user['username']?>"/>
+                    <input placeholder="" type="text" id="username" class="form-control active" name="username"
+                        value="<?php echo $user['username']?>" />
                     <label class="form-label" for="email">Username</label>
                 </div>
                 <!-- Email input -->
                 <div class="form-outline mb-4">
-                    <input placeholder="" type="email" id="email" class="form-control active" name="email" value="<?php echo $user['email']?>"/>
+                    <input placeholder="" type="email" id="email" class="form-control active" name="email"
+                        value="<?php echo $user['email']?>" />
                     <label class="form-label" for="email">Email address</label>
                 </div>
 
@@ -76,7 +78,7 @@ if (isset($_GET['id'])) {
                         <option <?php echo ($user['is_admin']) ? '' : 'selected'; ?> value="0">Użytkownik</option>
                     </select>
                 </div>
-                
+
                 <!-- Active select -->
                 <div class="form-outline mb-4">
                     <select name="active" id="active" class="form-select">
@@ -105,5 +107,5 @@ if (isset($_GET['id'])) {
     die();
 }
 
-include("../importy/footer.php");
+include("../../importy/footer.php");
 ?>

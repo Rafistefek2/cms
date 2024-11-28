@@ -29,7 +29,7 @@
     <script src="/cms/js/themes.js"></script>
     <header>
         <nav>
-            <a href="/cms/" class="pagelogo">CMS</a>
+            <a href="/cms/" class="pagelogo">CMSNZ</a>
 
             <div class="themes">
                 <input type="radio" name="theme" id="domyslny" class="theme-input" checked>
