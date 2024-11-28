@@ -18,7 +18,7 @@ nav {
     align-items: center;
 }
 .pagelogo{
-    color: white;
+    color: var(--text-white);
     text-decoration: none;
     font-size: 120%;
 }
@@ -45,13 +45,13 @@ nav {
 }
 
 #menu li a {
-    color: white;
+    color: var(--text-white);
     text-decoration: none;
 }
 
 #menu-button {
     display: none;
-    color: white;
+    color: var(--text-white);
     background-color: var(--color-header);
     border: none;
     font-size: 18px;

@@ -16,6 +16,8 @@
     --form-border: #ccc;
     --select-white: white;
     --chat-color: aliceblue;
+    --gradient-from: red;
+    --gradient-to: blue;
 }
 
 body {
@@ -336,15 +338,16 @@ span{
     text-align: center;
 }
 .info .gradient-text {
-    background: linear-gradient(to left, red,blue);
+    background: linear-gradient(to left, var(--gradient-from),var(--gradient-to));
     background-clip: text;
     -webkit-background-clip: text;      /* ? maska tekstu na background*/
     -webkit-text-fill-color: transparent;   /* ? przezroczysty tekst*/
 }
 .info hr{
     margin: 5px 0 5px;
-    background-color: var(--color-header);
-    height: 2px;
+    /* background-color: var(--color-header); */
+    background: linear-gradient(to left, var(--gradient-from),var(--gradient-to));
+    height: 4px;
     border: none;
 }
 .right{
@@ -457,6 +460,8 @@ input[type="radio"]#alter{
     --form-border: #ccc;
     --select-white: white;
     --chat-color: aliceblue;
+    --gradient-from: red;
+    --gradient-to: blue;
 }
 :root:has(#kontrast:checked){
     --color-back: #050505;
@@ -472,14 +477,16 @@ input[type="radio"]#alter{
     --form-border: #0073ff;
     --select-white: rgb(177, 162, 162);
     --chat-color: rgb(147, 183, 183);
+    --gradient-from: rgb(72, 253, 0);
+    --gradient-to: rgb(235, 235, 235);
 }
 :root:has(#alter:checked){
     --color-back: #ff4949;
     --color-panel: #dcf744;
     --form-outline: #5900ff;
-    --text-white: #ffffff;
+    --text-white: rgb(116,16,16);
     --text-black: #000000;
-    --table-odd: #4b64f0;
+    --table-odd: #0f1014;
     --table-even: #cd90ff;
     --odd-hover: #006eff;
     --even-hover: #c230fc;
@@ -487,6 +494,8 @@ input[type="radio"]#alter{
     --form-border: #ff009d;
     --select-white: rgb(248, 195, 195);
     --chat-color: rgb(221, 156, 242);
+    --gradient-from: rgb(25, 0, 255);
+    --gradient-to: rgb(255, 0, 0);
 }
 .czat{
     width: 20em;
@@ -497,7 +506,8 @@ input[type="radio"]#alter{
     color: var(--text-black);
     display: flex;
     flex-direction: column-reverse;
-    padding: 1em 0.5em 1em;
+    padding: 0.5em 0.5em 1em;
+    border-radius: 10px;
 }
 .bottominput{
     display: flex;
@@ -505,7 +515,7 @@ input[type="radio"]#alter{
 }
 #inputsend{
     width: 75%;
-    height: 3em;
+    height: 2em;
     padding: 0.5em;
     border-radius: 5px;
     border: none;
@@ -518,8 +528,8 @@ input[type="radio"]#alter{
 }
 .btn-send{
     width: 20%;
-    height: 3em;
-    color: var(--text-white);
+    height: 2em;
+    color: var(--text-black);
     border-radius: 4px;
     /* background-color: #F3C3B2; */
     background-color: var(--color-header);
@@ -533,10 +543,26 @@ input[type="radio"]#alter{
 }
 .chatcontent{
     width: 100%;
-    height: 100%;
+    max-height: 100%;
+    overflow-y: auto;
     background-color: var(--color-header);
     margin-bottom: 2em;
+    border-radius: 5px;
+    padding: 0.2em;
+    display: flex;
+    flex-direction: column-reverse;
 }
+.mess{
+    display: flex;
+    margin: 3px 0 3px 3px;
+}
+.messautor{
+    width: 20%;
+}
+.messcontent{
+    width: 80%;
+}
+
 
 
 

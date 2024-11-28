@@ -27,7 +27,7 @@ pomysły na nazwy:
 
 -   POBRAC FONTY DO PLIKU
 
-- sprawdzić co z modyfikacją i dodawaniem postów przez dashboard
+-   sprawdzić co z modyfikacją i dodawaniem postów przez dashboard
 
 -   wlasne style robic trzeba!
 

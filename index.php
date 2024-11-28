@@ -12,6 +12,21 @@ include('importy/MarkdownParser.php');
         // var_dump( $result->fetch_assoc() );
         $usersnum = $result->fetch_assoc();
     }
+
+    //? wstawia wiadomosc do bazy
+    if (isset($_POST['wiadomosc'])) {
+        if ($stm = $connect->prepare('INSERT INTO chat (author, content) VALUES (?, ?)')) {
+            $stm->bind_param('ss', $_SESSION['id'], $_POST['wiadomosc']);
+            $stm->execute();
+            $stm->close();
+        }
+    }
+
+    
+
+
+
+    //? pokazuje posty czy publiczne czy prywatne nwm wszystko dziala jak natura chciala
     if (isset($_SESSION['username'])) {
         if ($stm = $connect->prepare('SELECT COUNT(ID) as liczbaPostow FROM posts')) {
             $stm->execute();
@@ -95,15 +110,23 @@ if ($stm = $connect->prepare('SELECT * FROM posts JOIN users ON users.ID = posts
                     }
                 ?>
             </div>
-            <div class="czat">
+            <form class="czat" method="post">
                 <div class="bottominput">
-                    <input type="text" name="wiadomosc" id="inputsend">
-                    <button class='btn-send'>Wyślij</button>
+                    <input type="text" name="wiadomosc" id="inputsend" <?php
+                    if (!isset($_SESSION['username'])) {
+                            echo "placeholder='zaloguj się aby czatować' readonly";
+                        }
+                    ?>>
+                    <button type="submit" class='btn-send' <?php
+                        if (!isset($_SESSION['username'])) {
+                            echo "disabled";
+                        }
+                    ?>>Wyślij</button>
                 </div>
-                <div class="chatcontent">
-                    
+                <div class="chatcontent" id="chatcontent">
+                    <script src="js/chat.js"></script>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 </div>
