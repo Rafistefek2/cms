@@ -96,7 +96,13 @@ if ($stm = $connect->prepare('SELECT * FROM posts JOIN users ON users.ID = posts
                 ?>
             </div>
             <div class="czat">
-                (tu będzie kiedyś czat)
+                <div class="bottominput">
+                    <input type="text" name="wiadomosc" id="inputsend">
+                    <button class='btn-send'>Wyślij</button>
+                </div>
+                <div class="chatcontent">
+                    
+                </div>
             </div>
         </div>
     </div>
