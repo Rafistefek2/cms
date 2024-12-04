@@ -18,11 +18,11 @@ A pokud se něco v databázi změní, může administrátor změnit hesla všem,
 
 ---------------todo---------------
 
--   WYMYSLIC KURWA NAZWE
+-   WYMYSLIC NAZWE
 pomysły na nazwy:
     coś 
     mogłem
-    sspierdolic
+    spsuc
 
     chciałbym
     móc
